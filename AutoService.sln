@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoService.WEBAPI", "AutoService.WEBAPI\AutoService.WEBAPI.csproj", "{39CB9780-FB2F-4F35-8BF3-BDBA0511FA31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autoservice.Infrastructure", "Autoservice.Infrastructure\Autoservice.Infrastructure.csproj", "{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39CB9780-FB2F-4F35-8BF3-BDBA0511FA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39CB9780-FB2F-4F35-8BF3-BDBA0511FA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39CB9780-FB2F-4F35-8BF3-BDBA0511FA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39CB9780-FB2F-4F35-8BF3-BDBA0511FA31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
