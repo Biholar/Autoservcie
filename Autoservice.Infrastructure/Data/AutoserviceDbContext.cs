@@ -1,4 +1,5 @@
-﻿using Autoservice.Infrastructure.Models;
+﻿using Autoservice.Infrastructure.Configuration;
+using Autoservice.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Autoservice.Infrastructure.Data;
@@ -26,8 +27,8 @@ public class AutoserviceDbContext:DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfiguration(new );
-        modelBuilder.ApplyConfiguration(new );
+        modelBuilder.ApplyConfiguration(new CarConfiguration());
+        modelBuilder.ApplyConfiguration(new CarPartConfiguration());
         modelBuilder.ApplyConfiguration(new );
         modelBuilder.ApplyConfiguration(new );
         modelBuilder.ApplyConfiguration(new );

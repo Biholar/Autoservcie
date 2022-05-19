@@ -8,6 +8,6 @@ public class CustomerCar
     public int CustomerId { get; set; }
     
     
-    public Car Car { get; set; }
+    public ModificationCar Car { get; set; }
     public Customer Customer { get; set; }
 }
