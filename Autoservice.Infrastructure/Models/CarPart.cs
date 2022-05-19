@@ -6,6 +6,6 @@ public class CarPart
     public int CarId { get; set; }
     public int PartId { get; set; }
 
-    public Car Car { get; set; }
+    public ModificationCar Car { get; set; }
     public SparePart Part { get; set; }
 }

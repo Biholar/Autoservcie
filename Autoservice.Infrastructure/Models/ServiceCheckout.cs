@@ -8,6 +8,8 @@ public class ServiceCheckout
     public int TotalPrice { get; set; }
     public string ProblemDesc { get; set; }
     public int MaserId { get; set; }
+    public DateTime RequestTime { get; set; }
+    public int ServiceStatus { get; set; }
 
     public Customer Customer { get; set; }
     public ServiceType Service { get; set; }

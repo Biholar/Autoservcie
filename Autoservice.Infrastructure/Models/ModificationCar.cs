@@ -8,5 +8,5 @@ public class ModificationCar
     public int ModelCarId { get; set; }
     
     public ModelCar ModelCar { get; set; }
-    public List<Car> Cars { get; set; }
+    public List<CarPart> CarParts { get; set; }
 }
