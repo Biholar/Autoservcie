@@ -8,4 +8,5 @@ public class ModelCar
     public int MarkeId { get; set; }
     
     public MarkeCar Marke { get; set; }
+    public List<ModificationCar> ModificationCars { get; set; }
 }

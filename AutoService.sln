@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoService.WEBAPI", "AutoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autoservice.Infrastructure", "Autoservice.Infrastructure\Autoservice.Infrastructure.csproj", "{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoService.Core", "AutoService.Core\AutoService.Core.csproj", "{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

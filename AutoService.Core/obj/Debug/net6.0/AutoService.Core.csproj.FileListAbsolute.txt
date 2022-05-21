@@ -1,0 +1,15 @@
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\bin\Debug\net6.0\AutoService.Core.deps.json
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\bin\Debug\net6.0\AutoService.Core.dll
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\bin\Debug\net6.0\AutoService.Core.pdb
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\bin\Debug\net6.0\Autoservice.Infrastructure.dll
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\bin\Debug\net6.0\Autoservice.Infrastructure.pdb
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.csproj.AssemblyReference.cache
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.AssemblyInfoInputs.cache
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.AssemblyInfo.cs
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.csproj.CoreCompileInputs.cache
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.csproj.CopyComplete
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.dll
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\refint\AutoService.Core.dll
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\AutoService.Core.pdb
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Core\obj\Debug\net6.0\ref\AutoService.Core.dll

@@ -7,5 +7,6 @@ public class Customer
     public string SecondName { get; set; }
     public string PhoneNum { get; set; }
     public string Gender { get; set; }
-    
+
+    public List<CustomerCar> CustomerCars { get; set; }
 }

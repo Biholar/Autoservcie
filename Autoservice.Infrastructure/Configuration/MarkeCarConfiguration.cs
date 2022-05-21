@@ -1,9 +1,10 @@
 ﻿using Autoservice.Infrastructure.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Autoservice.Infrastructure.Configuration;
 
-public class MarkeCarConfiguration
+public class MarkeCarConfiguration:IEntityTypeConfiguration<MarkeCar>
 {
     public void Configure(EntityTypeBuilder<MarkeCar> builder)
     {
