@@ -1,0 +1,261 @@
+﻿@page "/landing"
+@using AutoService.Client.ViewModels
+@using AutoService.WEBAPI.Dto
+@using Microsoft.JSInterop
+
+@inject ServiceRequestViewModel _viewModel;
+@inject HttpClient _httpClient;
+@inject IJSRuntime js;
+@inject IHttpClientFactory ClientFactory;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>USA Auto</title>
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/reset.css" />
+	<link rel="stylesheet" href="./css/bootstrap-grid.css" />
+	<link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
+        
+	<link rel="stylesheet" href="./css/style.css" />
+	<link rel="stylesheet" href="./css/usaautoCss/usaauto.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+
+</head>
+<body class="body-usa">
+<header class="header" id="menu-jakor">
+	<div class="box__header">
+		<div class="header__body">
+			<nav class="header__menu">
+				<ul class="header__list">
+					<li>
+						<a href="#about-us" class="header__link">Про нас</a>
+					</li>
+					<li>
+						<a href="#order-info" class="header__link">Замовити</a>
+					</li>
+					<li>
+						<a href="#contact" class="header__link">Контакти</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main class="main">
+	<section class="main-slide">
+		<div class="text-box">
+			<h1>Автосервіс Dyadya Vasya</h1>
+			<h2>Ремонтувати авто легко</h2>
+		</div>
+	</section>
+
+	<section id="about-us" class="our-advantages">
+		<div class="our-advantages-left-box">
+			<h3>Наші переваги</h3>
+			<img src="./img/usa-auto/Order.webp" alt="" />
+		</div>
+
+		<div class="our-advantages-right-box">
+			<ul class="advantages-box">
+				<li class="advantages-item">
+					<div class="step-box">
+						<span class="step-count">01</span>
+					</div>
+					<div class="line">
+						<p class="step-info">
+							Ремонтна компанія з 2007 року, більше 7 років роботи із ремонту авто.
+						</p>
+					</div>
+				</li>
+
+				<li class="advantages-item">
+					<div class="step-box">
+						<span class="step-count">02</span>
+					</div>
+					<div class="line">
+						<p class="step-info">
+							Мінімальна комісія за послуги та відсутність додаткових затрат компанії, що
+							«лягають» на клієнта.
+						</p>
+					</div>
+				</li>
+
+				<li class="advantages-item">
+					<div class="step-box">
+						<span class="step-count">03</span>
+					</div>
+					<div class="line">
+						<p class="step-info">
+							Реальні гарантії - договір, страхування авто
+						</p>
+					</div>
+				</li>
+
+				<li class="advantages-item">
+					<div class="step-box">
+						<span class="step-count">04</span>
+					</div>
+					<div class="line">
+						<p class="step-info">
+							Безкоштовна допомога та консультація по ремонту авто та доступ до запчастин з
+							Європи та США за доступними цінами
+						</p>
+					</div>
+				</li>
+
+				<li class="advantages-item">
+					<div class="step-box">
+						<span class="step-count">05</span>
+					</div>
+					<div class="line">
+						<p class="step-info">
+							Супровід на протязi доставки, та фотозвіти на кожному етапі
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="wrap advantages">
+		<ul class="accompaniment-list">
+			<li class="accompaniment-item">- Діагностика</li>
+			<li class="accompaniment-item">- Підбір деталей</li>
+			<li class="accompaniment-item">- Зберігання в теплому боксі</li>
+			<li class="accompaniment-item">- Робота професіоналів</li>
+			<li class="accompaniment-item">- Ремонтні роботи</li>
+			<li class="accompaniment-item">- Завершення робіт</li>
+		</ul>
+
+		<div class="accompaniment-info">
+			<div>
+				<div class="accompaniment-count">100%</div>
+			</div>
+
+			<div class="accompaniment-descr">
+				<p>супровід</p>
+				<span>на кожному етапі</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="wrap turnkey-section">
+		<article>
+			<h2 class="turnkey-title">Послуги "під ключ" не надаємо з двох причин</h2>
+
+			<ul class="turnkey-list">
+				<li class="turnkey-item">
+					<span class="turnkey-count">01</span>
+					<p class="turnkey-info">
+						Власник має приймати рішення з яких запчастин ремонтувати.
+					</p>
+				</li>
+
+				<li class="turnkey-item">
+					<span class="turnkey-count">02</span>
+					<p class="turnkey-info">
+						Вигода, яку клієнт частково втрачає довіряючи компанії повне питання ремонту.
+					</p>
+				</li>
+			</ul>
+		</article>
+		<img class="turnkey-img" src="./img/usa-auto/Key.webp" alt="turnkey" />
+	</section>
+		
+	<section id="order-info" class="wrap order-info" style="padding: 0">
+	
+			<img class="order-info-img" src="./img/usa-auto/Raptor.webp" alt="Raptor" />
+
+			<div class="order-info-box">
+				<h2>Щоб зробити замовлення</h2>
+				<p class="writeUs" style="font-weight: 300; padding: 0px 0px 10px 5px ;">Заповніть форму</p>
+		<EditForm  Model="@Request" OnValidSubmit="@Submit">
+				<div class="input-group mb-3">
+					<input @bind="Request.FirstName" type="text" class="form-control" placeholder="Вкажіть ваше ім'я" >
+				</div>
+                      
+				<div class="input-group mb-3">
+					<input @bind="Request.SecondName" type="text" class="form-control" placeholder="Вкажіть ваше прізвище" >
+				</div>
+
+				<div class="input-group mb-3">
+					<input   @bind="Request.Email" type="text" class="form-control" placeholder="Вкажіть ваш Email" >
+				</div>
+                      
+				<div class="input-group mb-3">
+					<input  @bind="Request.PhoneNum" type="text" class="form-control" placeholder="Вкажіть ваш номер телефону" >
+				</div>
+                      
+				<label class="writeUs" style="font-weight: 300; padding: 0px 0px 10px 5px ;">Опишіть вашу проблему</label>
+                     
+				<div class="input-group" style="margin-bottom: 120px;">
+					<textarea @bind="Request.ProblemDesc"  class="form-control" style="resize: none; height: 150px; margin-bottom: 120px;" ></textarea>
+				</div>
+			<button @onclick="()=> Submit()" type="button" class="btn btn-primary">Відправити</button>
+			</EditForm>	  
+			</div>
+	
+	</section>
+			
+
+	<section id="contact" class="wrap contact" style="padding: 0; margin: 0 auto">
+		<article>
+			<h2 class="contact-title">Контакти</h2>
+			<p class="phone-title">Телефон</p>
+			<ul>
+				<li class="contact-phone-item">
+					<span>Офіс</span>
+					<p>(0372)55-55-55</p>
+				</li>
+
+				<li class="contact-phone-item">
+					<span>Валерій</span>
+					<p>(050)982-13-09</p>
+				</li>
+			</ul>
+
+			<ul>
+				<li class="contact-info-item">
+					<span>Email</span>
+					<p>DDVasya@ukr.net</p>
+				</li>
+
+				<li class="contact-info-item">
+					<span>Адреса</span>
+					<p>вул. Ремонтна, 133</p>
+				</li>
+			</ul>
+		</article>
+		<div class="map-box">
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12943.552059893214!2d25.93778!3d48.336423!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473407ec29eb608d%3A0x7c0529ca3b3b5b4!2z0YPQuy4g0JzQsNC60YHQuNC80LAg0JrRgNC40LLQvtC90L7RgdCwLCAzMywg0KfQtdGA0L3QvtCy0YbRiywg0KfQtdGA0L3QvtCy0LjRhtC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNTgwMDA!5e1!3m2!1sru!2sua!4v1625748434880!5m2!1sru!2sua"
+				width="100%"
+				height="100%"
+				style="border: 0"
+				allowfullscreen=""
+				loading="lazy"
+			></iframe>
+		</div>
+	</section>
+</main>
+
+</body>
+</html>
+
+@code {
+	ServiceRequestDto Request = new ServiceRequestDto();
+	/*public ServiceRequestDto Request { get; set; } = new();*/
+
+	private async Task Submit()
+	{
+		await _viewModel.Create(Request);
+		await js.InvokeVoidAsync("alert", "Thanks");
+	}
+
+}

@@ -1,0 +1,88 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AutoService.Client
+build_property.RootNamespace = AutoService.Client
+build_property.ProjectDir = D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/CreateCustomerForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlQ3VzdG9tZXJGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/CreateOrderForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlT3JkZXJGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/CustomerCarForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJDYXJGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/EditOrderForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdE9yZGVyRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/LandingPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFuZGluZ1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ServiceLogTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmljZUxvZ1RhYmxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ServiceRequestTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmljZVJlcXVlc3RUYWJsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ServiceRequestUNUSED.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmljZVJlcXVlc3RVTlVTRUQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/TableForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

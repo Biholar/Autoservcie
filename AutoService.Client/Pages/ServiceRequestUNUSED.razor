@@ -1,0 +1,90 @@
+﻿@page "/requests"
+@using Newtonsoft.Json
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+@using Radzen
+
+@inject ServiceRequestViewModel _viewModel;
+@inject HttpClient _httpClient;
+@inject IJSRuntime js;
+@inject IHttpClientFactory ClientFactory;
+@if (data == null)
+{
+    <text>Loading...</text>
+}
+else if (!data.Any())
+{
+    <text>No Records Found.</text>
+}
+else
+
+{
+    <h3>ServiceRequests</h3>
+    <button class=" btn btn-outline-success oi oi-plus">Add request</button>
+    <table>
+        <thead>
+        <tr class="tableRow">
+            <th class="tableHead">ID</th>
+            <th class="tableHead">First Name</th>
+            <th class="tableHead">Second Name</th>
+            <th class="tableHead">Phone</th>
+            <th class="tableHead">Email</th>
+            <th class="tableHead">Problem</th>
+            <th class="tableHead">Statement</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (ServiceRequestDto entity  in data)
+        {
+            <tr class="tableRow">
+                <td class="tableRow">
+                    @entity.Id
+                </td>
+                 <td class="tableRow">
+                    @entity.FirstName
+                </td>
+                 <td class="tableRow">
+                    @entity.SecondName
+                </td>
+                 <td class="tableRow">
+                    @entity.PhoneNum
+                </td>
+                 <td class="tableRow">
+                    @entity.Email
+                </td>
+                 <td class="tableRow">
+                    @entity.ProblemDesc
+                </td>
+                <td class="tableRow">
+                    @entity.Statement
+                </td>
+                <td class="tableRow">
+                    <button class="btn-danger" @onclick="async () => await DeleteRecord(entity.Id)">Delete</button>
+                </td>
+                <td class="tableRow">
+                    <button class="btn btn-secondary" href="#">Edit</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@code {
+
+    List<ServiceRequestDto> data { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        data = await _viewModel.Get();
+    }
+
+    private async Task DeleteRecord(int id)
+    {
+        if (await js.InvokeAsync<bool>("confirm", $"Do you want to delete record?"))
+        {
+            await _viewModel.Delete(id);
+            await OnInitializedAsync();
+        }
+    }
+
+}

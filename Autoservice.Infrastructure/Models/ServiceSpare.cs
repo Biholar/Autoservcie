@@ -10,5 +10,5 @@ public class ServiceSpare
     public int Quantity { get; set; }
 
     public SparePart Spare { get; set; }
-    public ServiceCheckout Service { get; set; }
+    public ServiceCheckout ServiceCheckout { get; set; }
 }

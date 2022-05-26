@@ -10,13 +10,20 @@ public class CarPartConfiguration:IEntityTypeConfiguration<CarPart>
     {
         builder
             .HasKey(x => x.Id);
+        
         builder
             .HasOne(x => x.Car)
             .WithMany(p => p.CarParts)
             .HasForeignKey(x=>x.CarId);
+        
         builder
             .HasOne(x => x.Car)
             .WithMany(p => p.CarParts)
-            .HasForeignKey(x => x.PartId);
+            .HasForeignKey(x => x.CarId);
+
+        builder
+            .HasOne(x => x.Part)
+            .WithMany(x => x.CarParts)
+            .HasForeignKey(x=>x.PartId);
     }
 }

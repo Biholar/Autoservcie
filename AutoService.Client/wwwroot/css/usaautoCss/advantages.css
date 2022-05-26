@@ -1,0 +1,153 @@
+.our-advantages {
+  background-color: #191e22;
+}
+
+.our-advantages-left-box h3 {
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  padding: 30px 0;
+}
+
+.our-advantages-left-box img {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.our-advantages-right-box {
+  padding: 20px 0;
+}
+
+.advantages-box {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.advantages-item {
+  font-weight: 500;
+  display: block;
+  background-color: #202020;
+  margin-bottom: 20px;
+  border: 1px solid #7198d9;
+}
+
+.step-count {
+  padding: 30px 0;
+  font-size: 60px;
+  color: cornflowerblue;
+  text-align: center;
+}
+
+.line {
+  display: inline-block;
+  position: relative;
+}
+
+.step-info {
+  font-size: 20px;
+  padding: 0 20px 20px 20px;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .advantages-item {
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .advantages {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .advantages-item {
+    display: flex;
+    align-items: center;
+    padding:10px 0 10px 20px;
+  }
+
+  .step-box {
+    justify-content: start;
+    width: 150px;
+    padding-right: 30px;
+  }
+
+  .step-info {
+    font-size: 20px;
+    padding: 0 20px;
+  }
+
+  .step-info::before {
+    content: "";
+    width: 2px;
+    height: 70px;
+    background: #7198d9;
+    position: absolute;
+    margin-left: -30px;
+    bottom: -30%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .step-info {
+    font-size: 25px;
+  }
+
+  .step-info::before {
+    bottom: -20%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .our-advantages {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
+
+  .our-advantages-left-box h3 {
+    font-size: 50px;
+    font-weight: 600;
+  }
+
+  .our-advantages-left-box img {
+    width: 100%;
+  }
+
+  .advantages-box {
+    padding: 50px 0;
+  }
+
+  .advantages-item {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-right: none;
+  }
+
+  .step-box {
+    padding-right: 55px;
+  }
+
+  .step-info {
+    font-size: 30px;
+    padding: 25px 0;
+  }
+
+  .step-info::before {
+    bottom: 10%;
+    height: 90px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .our-advantages {
+    height: 100vh;
+  }
+
+  .our-advantages-left-box img {
+    margin-top: 100px;
+  }
+}

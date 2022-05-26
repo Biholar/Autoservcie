@@ -1,0 +1,48 @@
+﻿@page "/createOrder"
+
+<div class="wrapper">
+    <h1>New Order</h1>
+    <div class="plusWrpper">
+        <select class="form-select form-control input-group mb-3">
+            <option selected>Client</option>
+            <option value="1">Male</option>
+        </select>
+				<button onclick="window.open('../createCustomer','Create Customer','width=450,height=580')" type="button" class="btn-light">+</button>
+    </div>
+
+    <div class="plusWrpper">
+        <select class="form-select form-control input-group mb-3">
+            <option selected>Car</option>
+            <option value="1">Male</option>
+        </select>
+				<button onclick="window.open('../customerCar','Create Customer','width=450,height=580')"  type="button" class="btn-light">+</button>
+    </div>
+
+    <div class="plusWrpper">
+        <select class="form-select form-control input-group mb-3">
+            <option selected>Service Type</option>
+            <option value="1">Male</option>
+        </select>
+    </div>
+
+    <div class="plusWrpper">
+        <select class="form-select form-control input-group mb-3">
+            <option selected>Service</option>
+            <option value="1">Male</option>
+        </select>
+        <button type="button" class="btn-light"><a href="">+</a></button>
+    </div>
+			
+    <div class="input-group" style="margin-bottom: 120px">
+        <textarea
+					placeholder="Problem"
+						class="form-control"
+						style="resize: none; height: 150px; margin-bottom: 120px"
+					></textarea>
+    </div>
+
+    <div class="buttonWrapper">
+        <button type="button" style="width: 120px" class="btn btn-success">OK</button>
+        <button type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
