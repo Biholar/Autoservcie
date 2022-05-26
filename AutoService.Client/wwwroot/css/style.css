@@ -1,0 +1,29 @@
+@import "burger-menu.css" screen;
+
+
+body {
+  background-color: #f2f2f2;
+  min-width: 320px;
+  max-width: 2000px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.owl-nav {
+  display: none;
+}
+p,
+h3,
+h4,
+h2 {
+  color: #262162;
+}
+
+@media screen and (min-width: 768px) {
+  .sertificates-box {
+    padding: 6rem 4rem;
+  }
+}

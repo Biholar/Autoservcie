@@ -1,10 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoService.WEBAPI", "AutoService.WEBAPI\AutoService.WEBAPI.csproj", "{39CB9780-FB2F-4F35-8BF3-BDBA0511FA31}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoService.WEBAPI", "AutoService.WEBAPI\AutoService.WEBAPI.csproj", "{39CB9780-FB2F-4F35-8BF3-BDBA0511FA31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autoservice.Infrastructure", "Autoservice.Infrastructure\Autoservice.Infrastructure.csproj", "{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autoservice.Infrastructure", "Autoservice.Infrastructure\Autoservice.Infrastructure.csproj", "{AEB75C0C-B19F-43CA-838A-0DD7B7D430D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoService.Core", "AutoService.Core\AutoService.Core.csproj", "{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoService.Core", "AutoService.Core\AutoService.Core.csproj", "{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoService.Client", "AutoService.Client\AutoService.Client.csproj", "{AFA92E34-EEF3-49CF-B66C-7169B059D7AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,15 @@ Global
 		{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0ADB6C6-FBAD-40DE-9EDC-54E506932A48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFA92E34-EEF3-49CF-B66C-7169B059D7AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA92E34-EEF3-49CF-B66C-7169B059D7AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA92E34-EEF3-49CF-B66C-7169B059D7AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA92E34-EEF3-49CF-B66C-7169B059D7AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F94C1E05-00BA-4BB9-9115-6A3BA0023DE6}
 	EndGlobalSection
 EndGlobal

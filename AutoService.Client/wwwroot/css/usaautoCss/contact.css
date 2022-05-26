@@ -1,0 +1,75 @@
+.contact article {
+  padding: 50px 0;
+}
+
+.light{
+  font-weight: 400;
+}
+
+.contact-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.phone-title {
+  padding-left: 25px;
+  color: #888888;
+  margin-bottom: 15px;
+}
+
+.contact article ul {
+  padding-left: 25px;
+}
+
+.contact-phone-item,
+.contact-info-item {
+  margin-bottom: 20px;
+}
+
+.contact-phone-item span {
+  font-weight: 300;
+}
+
+.contact-phone-item p,
+.contact-info-item p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #7198d9;
+}
+
+.contact-info-item span {
+  color: #888888;
+  font-weight: 300;
+}
+
+
+@media (min-width: 768px) {
+  .contact {
+    display: flex;
+  }
+
+  .contact article,
+  .map-box {
+    width: 50%;
+  }
+
+ 
+  .phone-title,
+  .contact-phone-item span,
+  .contact-info-item span,
+  .contact-phone-item p,
+  .contact-info-item p {
+    font-size: 20px;
+    font-weight: normal;
+  }
+}
+
+@media (min-width: 1440px) {
+  .contact article {
+    padding: 50px 100px;
+  }
+}

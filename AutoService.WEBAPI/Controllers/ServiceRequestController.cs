@@ -40,12 +40,36 @@ public class ServiceRequestController:ControllerBase
         var serviceRequest = _mapper.Map<ServiceRequestDto>(res);
         return Ok(serviceRequest);
     }
+    
+    [HttpGet("requestState/{id}")]
+    public async Task<IActionResult> GetByState(int id)
+    {
+        var res = await _service.GetByStateAsync(id);
+        var serviceRequest = _mapper.Map<List<ServiceRequestDto>>(res);
+        return Ok(serviceRequest);
+    } 
+    
+    [HttpGet("requestName/{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        var res = await _service.GetByNameAsync(name);
+        var serviceRequest = _mapper.Map<List<ServiceRequestDto>>(res);
+        return Ok(serviceRequest);
+    }
 
     [HttpPut]
     public async Task<IActionResult> Update(ServiceRequestDto serviceRequestDto)
     {
         var serviceRequest = _mapper.Map<ServiceRequest>(serviceRequestDto);
         await _service.UpdateAsync(serviceRequest);
+        return Ok();
+    }
+    
+    [HttpPut("state-update")]
+    public async Task<IActionResult> UpdateState(ServiceUpdateRequestDto serviceRequestDto)
+    {
+        var serviceRequest = _mapper.Map<ServiceRequest>(serviceRequestDto);
+        await _service.UpdateStateAsync(serviceRequest);
         return Ok();
     }
 

@@ -1,0 +1,76 @@
+.accompaniment-list {
+  padding-left: 25px;
+}
+
+.accompaniment-item {
+  font-size: 25px;
+  line-height: 35px;
+}
+
+.accompaniment-info {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  margin: 20px auto 30px;
+}
+
+.accompaniment-count {
+  height: 150px;
+  width: 150px;
+  display: table-cell;
+  font-size: 40px;
+  font-style: italic;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  font-weight: bold;
+  background: rgb(28, 29, 41);
+  color: #7198d9;
+  text-shadow: 4.31px 5.516px 5.74px rgba(0, 0, 0, 0.18);
+  box-shadow: 4.31px 5.516px 5.74px rgba(0, 0, 0, 0.18);
+}
+
+.accompaniment-descr {
+  margin-left: -15px;
+}
+
+.accompaniment-descr p {
+  color: white;
+  font-size: 30px;
+}
+
+.accompaniment-descr span {
+  font-weight: 300;
+}
+
+@media (min-width: 1024px) {
+  .accompaniment-item {
+    font-size: 30px;
+    line-height: 50px;
+  }
+
+  .accompaniment-count {
+    height: 250px;
+    width: 250px;
+    font-size: 70px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .accompaniment-list {
+    padding-left: 50px;
+  }
+  .accompaniment-descr {
+    margin-left: -20px;
+  }
+
+  .accompaniment-descr p {
+    font-size: 40px;
+  }
+
+  .accompaniment-descr span {
+    font-size: 30px;
+  }
+}
