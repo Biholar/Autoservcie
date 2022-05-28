@@ -34,6 +34,14 @@ public class MarkeCarController:ControllerBase
         return Ok(markeCar);
     }
 
+    [HttpGet("marke/{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        var res = await _service.GetByNameAsync(name);
+        var markeCar = _mapper.Map<List<MarkeCarDto>>(res);
+        return Ok(markeCar);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

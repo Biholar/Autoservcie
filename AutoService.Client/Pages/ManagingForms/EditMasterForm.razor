@@ -1,0 +1,26 @@
+﻿@page "/editMasterForm"
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+@inject MasterViewModel _model
+
+    <input @bind="_master.Name" class="form-control" style="margin-bottom: 20px">
+    <div class="wrapper">
+        <div class="buttonWrapper">
+            <button @onclick="() => Save()" type="button" style="width: 120px" class="btn btn-success">OK</button>
+            <button @onclick="ModalInstance.CancelAsync" type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+
+@code
+{
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    [Parameter] public  List<MasterDto> Data { get; set; }
+    [Parameter] public MasterDto _master  {get; set; }
+    
+    async Task Save()
+    {
+        await _model.Update(_master);
+        Data = await _model.Get();
+        await ModalInstance.CloseAsync();
+    }
+}

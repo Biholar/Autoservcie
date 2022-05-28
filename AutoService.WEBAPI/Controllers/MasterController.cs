@@ -26,6 +26,7 @@ public class MasterController:ControllerBase
         return Ok();
     }
 
+    
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -34,6 +35,14 @@ public class MasterController:ControllerBase
         return Ok(master);
     }
 
+    [HttpGet("name/{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        var res = await _service.GetByNameAsync(name);
+        var master = _mapper.Map<List<MasterDto>>(res);
+        return Ok(master);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

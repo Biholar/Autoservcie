@@ -34,6 +34,14 @@ public class ServiceTypeController:ControllerBase
         return Ok(serviceType);
     }
 
+    [HttpGet("requestName/{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        var res = await _service.GetByNameAsync(name);
+        var serviceRequest = _mapper.Map<List<ServiceTypeDto>>(res);
+        return Ok(serviceRequest);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

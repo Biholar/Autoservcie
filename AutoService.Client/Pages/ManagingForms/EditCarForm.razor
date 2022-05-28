@@ -1,0 +1,26 @@
+﻿@page "/editModelCarForm"
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+@inject MarkeCarViewModel _model
+
+    <input @bind="_marke.Name" class="form-control" style="margin-bottom: 20px">
+    <div class="wrapper">
+        <div class="buttonWrapper">
+            <button @onclick="() => SaveMarke()" type="button" style="width: 120px" class="btn btn-success">OK</button>
+            <button @onclick="ModalInstance.CancelAsync" type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+
+@code
+{
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    [Parameter] public  List<MarkeCarDto> Data { get; set; }
+    [Parameter] public MarkeCarDto _marke  {get; set; }
+    
+    async Task SaveMarke()
+    {
+        await _model.Update(_marke);
+        Data = await _model.Get();
+        await ModalInstance.CloseAsync();
+    }
+}

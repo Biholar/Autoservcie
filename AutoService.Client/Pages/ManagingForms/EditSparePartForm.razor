@@ -1,0 +1,30 @@
+﻿@page "/editSparePartForm"
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+@inject SparePartViewModel _model
+
+<div class="wrapper">
+        <input @bind="_spare.Name" type="text" class="form-control" style="margin-bottom: 20px" placeholder="Service Type name">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">UAH</span>
+                    <input @bind="_spare.Price" type="number" class="form-control" placeholder="Price">
+                </div>
+    <div class="buttonWrapper">
+        <button @onclick="() => Save()" type="button" style="width: 120px" class="btn btn-success">OK</button>
+        <button @onclick="ModalInstance.CancelAsync" type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
+
+@code
+{
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    [Parameter] public  List<SparePartDto> Data { get; set; }
+    [Parameter] public SparePartDto _spare  {get; set; }
+    
+    async Task Save()
+    {
+        await _model.Update(_spare);
+        Data = await _model.Get();
+        await ModalInstance.CloseAsync();
+    }
+}

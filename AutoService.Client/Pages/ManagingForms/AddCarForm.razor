@@ -1,0 +1,24 @@
+﻿@page "/addCarForm"
+@inject MarkeCarViewModel _viewModel;
+@inject IJSRuntime js;
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+<div class="wrapper">
+    <input @bind="Request.Name" type="text" class="form-control" style="margin-bottom: 20px" placeholder="Manufacturer name">
+    <div class="buttonWrapper ">
+        <button type="button"@onclick="()=>Submit()" style="width: 120px" class="btn btn-success">OK</button>
+        <button type="button"  @onclick="ModalInstance.CancelAsync" style="width: 120px" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
+
+@code
+{
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    MarkeCarDto Request = new MarkeCarDto();
+
+    private async Task Submit()
+    {
+        await _viewModel.Create(Request);
+        ModalInstance.CloseAsync();
+    }
+}

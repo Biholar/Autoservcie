@@ -19,6 +19,13 @@ public class ServiceTypeService:IServiceTypeService
         return await _repository.ListAsync();
     }
 
+    public async Task<List<ServiceType>> GetByNameAsync(string name)
+    {
+        var request = await _repository.ListAsync();
+        var selectedRequest = request.Where(p => p.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase)).OrderBy(p => p.Name);
+        return selectedRequest.ToList();
+    }
+    
     public async Task<ServiceType> GetByIdAsync(int id)
     {
         var serviceType = await _repository.GetByIdAsync(id);

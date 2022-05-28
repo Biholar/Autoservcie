@@ -1,29 +1,29 @@
-﻿@page "/serviceRequests"
+﻿@page "/serviceLog"
 @using AutoService.WEBAPI.Dto
 @using AutoService.Client.ViewModels
 @using AutoService.WEBAPI.Controllers
+@using AutoService.Client.Enums
 
 @inject ServiceRequestViewModel _viewModel;
 @inject HttpClient _httpClient;
 @inject IJSRuntime js;
 @inject IHttpClientFactory ClientFactory;
+@inject IModalService modal  
 
 
-
-<h1 class="Title" style="font-weight: 800;">Service Requests</h1>
+<h1 class="Title" style="font-weight: 800;">Service Log</h1>
 	<div class="functionalWrapper" style="width: 600px;display: flex; align-items: center; justify-content: flex-start;">
-		<button class="btn btn-light"  style="margin-right: 10px">+</button>
+		@*
+		<button class="btn btn-light " @onclick="@(()=>modal.Show<CreateOrderForm>())" style="margin-right: 10px">+</button>
+		*@
 		<button class="btn btn-light" @onclick="async()=>await GetByState(0)" style="margin-right: 10px">Show New</button>
 		<button class="btn btn-light" @onclick="async()=>await OnInitializedAsync()" style="margin-right: 10px">Show All</button>
 		<div class="inputWrapper" style="width: 300px;display: flex;">
-			<input @bind="seachQ" type="text" style="margin-right:10px" class="form-control" placeholder="Enter Name">
-			<button class="btn btn-outline-primary" @onclick="async ()=> await FilterByName(seachQ)" style="margin-right: 10px">Search</button>
+			<input @bind="seachQ" type="text" class="form-control" style="margin-right:10px" placeholder="Вкажіть ім'я">
+			<button class="btn btn-light" @onclick="async ()=> await FilterByName(seachQ)" style="margin-right: 10px">Search</button>
 		</div>
 	</div>
 
-
-
-	
 	<div class="tableWrapper">
 		<table class="table table-hover table-striped-columns">
 			<thead>
@@ -53,7 +53,7 @@
 	            {
 		            <tr>
 			            <td style="font-weight: 800">@entity.Id</td>
-			            <td style="font-weight: 800">@entity.Statement</td>
+			            <td>@(Helper.ServiceParser(entity.Statement))</td>
 			            <td>@entity.FirstName @entity.SecondName</td>
 			            <td>@entity.PhoneNum</td>
 			            <td>@entity.Email</td>
@@ -69,6 +69,11 @@
 	</div>
 
 @code {
+	
+	
+
+	
+
 	private string? seachQ;
 	List<ServiceRequestDto> data { get; set; }
 

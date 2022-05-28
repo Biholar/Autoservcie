@@ -16,7 +16,16 @@ public class MarkeCarService:IMarkeCarService
 
     public async Task<List<MarkeCar>> GetAsync()
     {
-        return await _repository.ListAsync();
+        var res = await _repository.ListAsync();
+        var sortedRes = res.OrderBy(p => p.Name);
+        return sortedRes.ToList();
+    }
+
+    public async Task<List<MarkeCar>> GetByNameAsync(string name)
+    {
+        var request = await _repository.ListAsync();
+        var selectedRequest = request.Where(p => p.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase)).OrderBy(p => p.Name);
+        return selectedRequest.ToList();
     }
 
     public async Task<MarkeCar> GetByIdAsync(int id)

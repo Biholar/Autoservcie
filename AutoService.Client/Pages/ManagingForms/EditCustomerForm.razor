@@ -1,0 +1,71 @@
+﻿@page "/editCustomerForm"
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+@using Autoservice.Infrastructure.Models
+@inject CustomerViewModel _model
+
+   
+<div class="wrapper">
+    <div class="input-group mb-3">
+    				<input @bind="_customer.FirstName" type="text" class="form-control" placeholder="First Name" />
+    			</div>
+    
+    			<div class="input-group mb-3">
+    				<input @bind="_customer.SecondName" type="text" class="form-control" placeholder="Second Name" />
+    			</div>
+    
+    			<div class="input-group mb-3">
+    				<input @bind="_customer.PhoneNum" type="text" class="form-control" placeholder="Phone number" />
+    			</div>
+    
+    			<select @bind="_customer.Gender" class="form-select form-control input-group mb-3" aria-label="Gender">
+                  <option selected>Gender</option>
+	                <option value="male">Male</option>
+	                <option value="female">Female</option>
+	                <option value="another">Another</option>
+                  </select>
+                  <h2 >Client car</h2>
+                  <select class="form-select form-control input-group mb-3" >
+                    <option selected>Marke</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Another</option>
+                  </select>
+    
+                   <select class="form-select form-control input-group mb-3" >
+                    <option selected>Model</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Another</option>
+                  </select>
+    
+                   <select class="form-select form-control input-group mb-3" >
+                    <option selected>Modification</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Another</option>
+                  </select>
+                  
+                  <div class="input-group mb-3">
+    				<input type="text" class="form-control" placeholder="Vin" />
+    			</div>
+    	
+    <div class="buttonWrapper">
+        <button @onclick="() => Save()" type="button" style="width: 120px" class="btn btn-success">OK</button>
+        <button @onclick="ModalInstance.CancelAsync" type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
+
+@code
+{
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    [Parameter] public  List<CustomerDto> Data { get; set; }
+    [Parameter] public CustomerDto _customer  {get; set; }
+    
+    async Task Save()
+    {
+        await _model.Update(_customer);
+        Data = await _model.Get();
+        await ModalInstance.CloseAsync();
+    }
+}
