@@ -1,5 +1,6 @@
 
 using AutoService.Client.ViewModels;
+using Blazored.Modal;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -10,7 +11,13 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ServiceRequestViewModel>();
+builder.Services.AddTransient<MarkeCarViewModel>();
+builder.Services.AddTransient<MasterViewModel>();
+builder.Services.AddTransient<ServiceTypeViewModel>();
+builder.Services.AddTransient<SparePartViewModel>();
+builder.Services.AddTransient<CustomerViewModel>();
 builder.Services.AddHttpClient();
+builder.Services.AddBlazoredModal(); 
 
 var app = builder.Build();
 

@@ -19,6 +19,13 @@ public class SparePartService:ISparePartService
         return await _repository.ListAsync();
     }
 
+    public async Task<List<SparePart>> GetByNameAsync(string name)
+    {
+        var request = await _repository.ListAsync();
+        var selectedRequest = request.Where(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase)).OrderBy(p => p.Name);
+        return selectedRequest.ToList();
+    }
+    
     public async Task<SparePart> GetByIdAsync(int id)
     {
         var sparePart = await _repository.GetByIdAsync(id);

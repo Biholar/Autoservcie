@@ -19,6 +19,12 @@ public class MasterService:IMasterService
         return await _repository.ListAsync();
     }
 
+    public async Task<List<Master>> GetByNameAsync(string name)
+    {
+        var request = await _repository.ListAsync();
+        var selectedRequest = request.Where(p => p.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase)).OrderBy(p => p.Name);
+        return selectedRequest.ToList();
+    }
     public async Task<Master> GetByIdAsync(int id)
     {
         var master = await _repository.GetByIdAsync(id);

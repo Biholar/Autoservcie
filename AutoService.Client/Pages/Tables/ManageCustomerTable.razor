@@ -1,0 +1,98 @@
+﻿@page "/manageCustomerTable"
+@using AutoService.Client.Pages.ManagingForms
+@using AutoService.Client.ViewModels
+@using AutoService.WEBAPI.Dto
+@inject CustomerViewModel _viewModel;
+@inject HttpClient _httpClient;
+@inject IJSRuntime js;
+@inject IHttpClientFactory ClientFactory;
+@inject IModalService modal  
+
+<div class="modalFormWrapper" style="width: 600px">
+
+	<div class="inputWrapper" style="display: flex; margin: 0 30px">
+						<button @onclick="@(()=>modal.Show<AddCustomerForm>("Add new Master"))" class="btn btn-primary" style="margin-right: 10px; width: 50px; height:40px;">+</button>
+		<input @bind="seachQ"  type="text" class="form-control"  placeholder="Search"/>
+		<button @onclick="async ()=> await FilterByName(seachQ)"class="btn btn-light" style="margin-left: 10px">Search</button>
+	</div>
+
+			<div class="tableWrapper">
+				<table class="table table-sm">
+					<caption style="margin-top: 10px">
+						List of Customers
+					</caption>
+					<thead>
+					<tr @onclick="() => Refresh()">
+						<th style="font-weight: 800; background-color: #e6e6e6; width: 30px ;    padding-top: 13px;">#</th>
+						<th style="font-weight: 800; background-color: #e6e6e6; width: 300px;    padding-top: 13px;">Name</th>
+						<th style="font-weight: 800; background-color: #e6e6e6; width: 150px;    padding-top: 13px;">Phone number</th>
+					</tr>
+					</thead>
+					
+					@if (data == null)
+                                {
+                                    <text>Loading...</text>
+                                }
+                                else if (!data.Any())
+                                {
+                                    <text>No Records Found.</text>
+                                }
+					else{
+						<tbody>
+						 @foreach (CustomerDto entity  in data)
+							{
+						<tr id="parrent"  style="height: 30px">
+							<td style="text-align: left">@entity.Id</td>
+							<td  @onclick="() => ShowEditMovie(entity.Id)" style="text-align: left; padding-left: 30px">@entity.FirstName @entity.SecondName</td>
+							<td  @onclick="() => ShowEditMovie(entity.Id)" style="text-align: left; padding-left: 30px">@entity.PhoneNum </td>
+							<td>
+								<button id="child" class="buttonTrash" @onclick="async () => await DeleteRecord(entity.Id)">
+									<i class="fa fa-trash" aria-hidden="true"></i>
+								</button>
+							</td>
+						</tr>
+						 }
+						</tbody>
+					}
+				</table>
+			</div>
+		</div>
+
+@code {
+	private string? seachQ;
+	List<CustomerDto> data { get; set; }
+
+	private async Task ShowEditMovie(int id)
+	{
+		var parameters = new ModalParameters();
+		var customer = await _viewModel.GetById(id);
+		parameters.Add("_customer", customer);
+		parameters.Add("Data", data);
+
+		modal.Show<EditCustomerForm>("Edit Customer", parameters);
+	}
+	
+	protected override async Task OnInitializedAsync()
+	{
+		data = await _viewModel.Get();
+	}
+	
+	private async Task FilterByName(string name)
+	{
+		data = await _viewModel.GetByName(name);
+	}
+	
+	private async Task DeleteRecord(int id)
+	{
+		if (await js.InvokeAsync<bool>("confirm", $"Do you want to delete record?"))
+		{
+			await _viewModel.Delete(id);
+			data = await _viewModel.Get();
+		}
+	}
+	
+	private async Task Refresh()
+	{
+		data = await _viewModel.Get();
+	}
+}

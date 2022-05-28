@@ -1,4 +1,6 @@
-﻿@page "/createOrder"
+﻿@*@page "/createOrder"
+@using Autoservice.Infrastructure.Models
+@inject IModalService modal  
 
 <div class="wrapper">
     <h1>New Order</h1>
@@ -7,7 +9,7 @@
             <option selected>Client</option>
             <option value="1">Male</option>
         </select>
-				<button onclick="window.open('../createCustomer','Create Customer','width=450,height=580')" type="button" class="btn-light">+</button>
+				<button  @onclick="@(()=>modal.Show<CreateCustomerForm>())" type="button" class="btn-light">+</button>
     </div>
 
     <div class="plusWrpper">
@@ -15,7 +17,7 @@
             <option selected>Car</option>
             <option value="1">Male</option>
         </select>
-				<button onclick="window.open('../customerCar','Create Customer','width=450,height=580')"  type="button" class="btn-light">+</button>
+				<button @onclick="@(()=>modal.Show<CustomerCarForm>())"   type="button" class="btn-light">+</button>
     </div>
 
     <div class="plusWrpper">
@@ -45,4 +47,4 @@
         <button type="button" style="width: 120px" class="btn btn-success">OK</button>
         <button type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
     </div>
-</div>
+</div>*@

@@ -35,6 +35,14 @@ public class SparePartController:ControllerBase
         return Ok(sparePart);
     }
 
+    [HttpGet("spare/{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        var res = await _service.GetByNameAsync(name);
+        var serviceRequest = _mapper.Map<List<SparePartDto>>(res);
+        return Ok(serviceRequest);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

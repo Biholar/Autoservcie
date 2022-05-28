@@ -20,6 +20,13 @@ public class CustomerService:ICustomerService
         return await _repository.ListAsync();
     }
 
+    public async Task<List<Customer>> GetByNameAsync(string name)
+    {
+        var request = await _repository.ListAsync();
+        var selectedRequest = request.Where(p => p.FirstName.StartsWith(name, StringComparison.OrdinalIgnoreCase) || p.SecondName.StartsWith(name, StringComparison.OrdinalIgnoreCase) ).OrderBy(p => p.Id);
+        return selectedRequest.ToList();
+    }
+    
     public async Task<Customer> GetByIdAsync(int id)
     {
         var customer = await _repository.GetByIdAsync(id);

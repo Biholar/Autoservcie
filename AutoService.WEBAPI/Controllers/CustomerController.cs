@@ -35,6 +35,14 @@ public class CustomerController :ControllerBase
         return Ok(customers);
     }
 
+    [HttpGet("name/{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        var res = await _service.GetByNameAsync(name);
+        var serviceRequest = _mapper.Map<List<CustomerDto>>(res);
+        return Ok(serviceRequest);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
