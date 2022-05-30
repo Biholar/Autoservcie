@@ -2,8 +2,10 @@
 @using AutoService.Client.ViewModels
 @using AutoService.WEBAPI.Dto
 @using Microsoft.JSInterop
+@using AutoService.Client.Enums
 
 @inject ServiceRequestViewModel _viewModel;
+@inject OrderViewModel _orderModel;
 @inject HttpClient _httpClient;
 @inject IJSRuntime js;
 @inject IHttpClientFactory ClientFactory;
@@ -200,9 +202,18 @@
 			<button @onclick="()=> Submit()" type="button" class="btn btn-primary">Відправити</button>
 			</EditForm>	  
 			</div>
-	
 	</section>
-			
+				<section>
+            				<div class="wrap" style="    display: flex;
+            				align-items: center; padding: 20px 150px;"><label class="writeUs" style="font-weight: 300; padding: 0px 10px 0 40px;">Перевірте статус</label>
+	                            <div class="input-group" style="width: 300px;">
+            						<input @bind="id" type="number" class="form-control" placeholder="Номер замовлення" >
+            					  </div>
+            					  <button @onclick="()=>CheckServiceStatus(id)" type="button" class="btn btn-primary" style="margin: 0 20px;width: 150px; height: 40px;">Перевірити</button>
+            					  <label  for="Result" style="margin: 0 auto ; font-size: 25px;">@status</label>
+            				</div>
+            			</section>
+
 
 	<section id="contact" class="wrap contact" style="padding: 0; margin: 0 auto">
 		<article>
@@ -251,7 +262,15 @@
 @code {
 	ServiceRequestDto Request = new ServiceRequestDto();
 	/*public ServiceRequestDto Request { get; set; } = new();*/
-
+	public int id;
+	public string status = "";
+	
+	public async Task CheckServiceStatus(int id)
+	{
+		var order = await _orderModel.GetById(id);
+		status = Helper.ServiceParser(order.ServiceStatus);
+	}
+	
 	private async Task Submit()
 	{
 		await _viewModel.Create(Request);

@@ -79,3 +79,6 @@ D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\bin\Debu
 D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
 D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\bin\Debug\net6.0\Blazored.Modal.dll
 D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\bin\Debug\net6.0\Microsoft.JSInterop.WebAssembly.dll
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\INSTAL\Documents\paidprogramming\CHNU\AutoService\AutoService.Client\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

@@ -20,11 +20,11 @@ public class ServiceCheckoutService:IServiceCheckoutService
         return await _repository.ListAsync();
     }
 
+  
     public async Task<ServiceCheckout> GetByIdAsync(int id)
     {
         var serviceCheckout = await _repository.GetByIdAsync(id);
         if (serviceCheckout == null) throw new NotFoundException(nameof(ServiceCheckout));
-
         return serviceCheckout;
     }
 

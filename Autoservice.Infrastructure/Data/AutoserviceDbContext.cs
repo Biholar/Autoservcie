@@ -20,7 +20,7 @@ public class AutoserviceDbContext:DbContext
     public DbSet<ServiceCheckout>ServiceCheckouts { get; set; }
     public DbSet<ServiceSpare>ServiceSpares { get; set; }
     public DbSet<ServiceType> ServiceTypes{ get; set; }
-    public DbSet<ServiceTypeSumm> ServiceTypeSummsypes{ get; set; }
+    public DbSet<ServiceTypeSumm> ServiceTypeSummsTypes{ get; set; }
     public DbSet<SparePart>SpareParts { get; set; }
     public DbSet<ServiceRequest>ServiceRequests { get; set; }
     

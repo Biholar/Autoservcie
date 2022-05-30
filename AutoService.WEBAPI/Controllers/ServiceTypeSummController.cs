@@ -34,7 +34,23 @@ public class ServiceTypeSummController:ControllerBase
         var serviceTypeSumm = _mapper.Map<List<ServiceTypeSummDto>>(res);
         return Ok(serviceTypeSumm);
     }
-
+    
+    [HttpGet("service-checout-table/{id}")]
+    public async Task<IActionResult> GetTableById (int id)
+    {
+        var serviceTypeSumm = await _service.GetByIdInclude(id);
+        var res = _mapper.Map<ServiceCheckoutServiceTypeDto>(serviceTypeSumm);
+        return Ok(res);
+    }
+    
+     [HttpGet("service-checout-table")]
+    public async Task<IActionResult> GetTable ()
+    {
+        var serviceTypeSumm = await _service.GetAllInclude();
+        var res = _mapper.Map<List<ServiceCheckoutServiceTypeDto>>(serviceTypeSumm);
+        return Ok(res);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

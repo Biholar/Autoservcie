@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoService.Core.Interfaces;
 using Autoservice.Infrastructure.Models;
+using AutoService.WEBAPI.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoService.WEBAPI.Controllers;
@@ -18,7 +19,7 @@ public class CustomerCarController:ControllerBase
         _mapper = mapper;
     }
     [HttpPost]
-    public async Task<IActionResult> Create(CustomerCar customerCarDto)
+    public async Task<IActionResult> Create(CustomerCarDto customerCarDto)
     {
         var res = _mapper.Map<CustomerCar>(customerCarDto);
         await _service.CreateAsync(res);
@@ -29,7 +30,7 @@ public class CustomerCarController:ControllerBase
     public async Task<IActionResult> GetAll()
     {
         var res =await _service.GetAsync();
-        var customers = _mapper.Map<List<CustomerCar>>(res);
+        var customers = _mapper.Map<List<CustomerCarDto>>(res);
         return Ok(customers);
     }
 
@@ -37,12 +38,12 @@ public class CustomerCarController:ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         var res =await _service.GetByIdAsync(id);
-        var customer = _mapper.Map<CustomerCar>(res);
+        var customer = _mapper.Map<CustomerCarDto>(res);
         return Ok(customer);
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update(CustomerCar customerCarDto)
+    public async Task<IActionResult> Update(CustomerCarDto customerCarDto)
     {
         var res = _mapper.Map<CustomerCar>(customerCarDto);
         await _service.UpdateAsync(res);

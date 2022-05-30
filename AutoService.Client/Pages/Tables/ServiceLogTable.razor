@@ -4,7 +4,7 @@
 @using AutoService.WEBAPI.Controllers
 @using AutoService.Client.Enums
 
-@inject ServiceRequestViewModel _viewModel;
+@inject ServiceCheckoutServiceTypeServiceSummServiceViewModel _viewModel;
 @inject HttpClient _httpClient;
 @inject IJSRuntime js;
 @inject IHttpClientFactory ClientFactory;
@@ -16,11 +16,11 @@
 		@*
 		<button class="btn btn-light " @onclick="@(()=>modal.Show<CreateOrderForm>())" style="margin-right: 10px">+</button>
 		*@
-		<button class="btn btn-light" @onclick="async()=>await GetByState(0)" style="margin-right: 10px">Show New</button>
+		<button class="btn btn-light" style="margin-right: 10px">Show New</button>
 		<button class="btn btn-light" @onclick="async()=>await OnInitializedAsync()" style="margin-right: 10px">Show All</button>
 		<div class="inputWrapper" style="width: 300px;display: flex;">
 			<input @bind="seachQ" type="text" class="form-control" style="margin-right:10px" placeholder="Вкажіть ім'я">
-			<button class="btn btn-light" @onclick="async ()=> await FilterByName(seachQ)" style="margin-right: 10px">Search</button>
+			<button class="btn btn-light"style="margin-right: 10px">Search</button>
 		</div>
 	</div>
 
@@ -31,10 +31,10 @@
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 70px">#</th>
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 70px">Status</th>
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 300px">Client</th>
-				<th style="font-weight: 800; background-color: #e6e6e6; width: 150px">Phone</th>
-				<th style="font-weight: 800; background-color: #e6e6e6; width: 150px">Email</th>
-				<th style="font-weight: 800; background-color: #e6e6e6; width: 400px">Problem</th>
-				<th style="font-weight: 800; background-color: #e6e6e6; width: 100px">Butons</th>
+				<th style="font-weight: 800; background-color: #e6e6e6; width: 150px">Car</th>
+				<th style="font-weight: 800; background-color: #e6e6e6; width: 150px">Box</th>
+				<th style="font-weight: 800; background-color: #e6e6e6; width: 400px">Master</th>
+				<th style="font-weight: 800; background-color: #e6e6e6; width: 100px">Service Type</th>
 			</tr>
 			</thead>
 			
@@ -49,17 +49,18 @@
             else
 
             {
-	            foreach (ServiceRequestDto entity  in data)
+	            foreach (ServiceCheckoutServiceTypeDto entity  in data)
 	            {
 		            <tr>
 			            <td style="font-weight: 800">@entity.Id</td>
-			            <td>@(Helper.ServiceParser(entity.Statement))</td>
-			            <td>@entity.FirstName @entity.SecondName</td>
-			            <td>@entity.PhoneNum</td>
-			            <td>@entity.Email</td>
-			            <td>@entity.ProblemDesc</td>
+			            <td>@(Helper.ServiceParser(entity.ServiceStatus))</td>
+			            <td>@entity.Customer</td>
+			            <td>@entity.MarkeModel</td>
+			            <td>@entity.Box</td>
+			            <td>@entity.Master</td>
+			            <td>@entity.ServiceType</td>
 			            <td>
-				            <button class="buttonPlus" @onclick="async () => await UpdateState(entity.Id)"><i class="fa fa-check " aria-hidden="true"></i></button>
+				            <button class="buttonPlus"><i class="fa fa-check " aria-hidden="true"></i></button>
 				            <button class="buttonTrash" @onclick="async () => await DeleteRecord(entity.Id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 			            </td>
 		            </tr>
@@ -69,40 +70,13 @@
 	</div>
 
 @code {
-	
-	
-
-	
-
 	private string? seachQ;
-	List<ServiceRequestDto> data { get; set; }
-
-	
-
+	List<ServiceCheckoutServiceTypeDto> data { get; set; }
 	protected override async Task OnInitializedAsync()
 	{
 		data = await _viewModel.Get();
 	}
 
-	private async Task FilterByName(string name)
-	{
-		data = await _viewModel.GetByName(name);
-	}
-	
-	private async Task GetByState(int id)
-	{
-		data = await _viewModel.GetByState(id);
-	}
-
-	private async Task UpdateState(int id)
-	{
-		if (await js.InvokeAsync<bool>("confirm", $"Do you processed this record?"))
-		{
-			await _viewModel.UpdateState(new ServiceUpdateRequestDto() {id = id, Statement = 1});
-			data = await _viewModel.Get();
-		}
-	}
-	
 	private async Task DeleteRecord(int id)
 	{
 		if (await js.InvokeAsync<bool>("confirm", $"Do you want to delete record?"))

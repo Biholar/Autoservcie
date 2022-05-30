@@ -103,6 +103,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVzXE1hbmFnZU1hc3RlclRhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/Tables/ManageModelsTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVzXE1hbmFnZU1vZGVsc1RhYmxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/Tables/ManageModTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVzXE1hbmFnZU1vZFRhYmxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/Tables/ManageServiceTypeTable.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVzXE1hbmFnZVNlcnZpY2VUeXBlVGFibGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

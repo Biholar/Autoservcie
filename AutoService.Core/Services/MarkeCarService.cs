@@ -1,5 +1,6 @@
 ﻿using AutoService.Core.Exceptions;
 using AutoService.Core.Interfaces;
+using AutoService.Core.Specs.CarsSpec;
 using Autoservice.Infrastructure;
 using Autoservice.Infrastructure.Models;
 
@@ -28,6 +29,13 @@ public class MarkeCarService:IMarkeCarService
         return selectedRequest.ToList();
     }
 
+       public async Task<MarkeCar> GetCarByIdIncludeModelModification(int id)
+    {
+        var request = await _repository.GetBySpecAsync(new CarModelModifIncludeSpecification(id));
+        return request;
+    }
+
+    
     public async Task<MarkeCar> GetByIdAsync(int id)
     {
         var markeCar = await _repository.GetByIdAsync(id);
