@@ -17,25 +17,25 @@ public class ServiceCheckoutServiceTypeDto:IMap<ServiceCheckout>
     
     public void Mapping(Profile profile)
     {
-        profile.CreateMap<ServiceTypeSumm, ServiceCheckoutServiceTypeDto>()
+        profile.CreateMap<ServiceCheckout, ServiceCheckoutServiceTypeDto>()
             .ForMember(d => d.Customer, m =>
                 m.MapFrom(s =>
-                    $"{s.ServiceCheckout.CustomerCar.Customer.FirstName} {s.ServiceCheckout.CustomerCar.Customer.SecondName}"))
+                    $"{s.CustomerCar.Customer.FirstName} {s.CustomerCar.Customer.SecondName}"))
             .ForMember(d => d.Master, m =>
                 m.MapFrom(s =>
-                    s.ServiceCheckout.Master.Name))
+                    s.Master.Name))
             .ForMember(d => d.Box, m =>
                 m.MapFrom(s =>
-                    s.ServiceCheckout.Master.Box))
+                    s.Master.Box))
             .ForMember(d => d.MarkeModel, m =>
                 m.MapFrom(s =>
-                    $"{s.ServiceCheckout.CustomerCar.Car.ModelCar.Name} {s.ServiceCheckout.CustomerCar.Car.ModelCar.Marke.Name}"))
+                    $"{s.CustomerCar.Car.ModelCar.Marke.Name} {s.CustomerCar.Car.ModelCar.Name}"))
             .ForMember(d => d.ServiceStatus, m =>
                 m.MapFrom(s =>
-                    s.ServiceCheckout.ServiceStatus))
+                    s.ServiceStatus))
             .ForMember(d => d.ServiceType, m =>
                 m.MapFrom(s =>
-                    s.ServiceType.Name));
+                    s.ServiceTypeSumm.FirstOrDefault().ServiceType.Name));
             
     } 
 }

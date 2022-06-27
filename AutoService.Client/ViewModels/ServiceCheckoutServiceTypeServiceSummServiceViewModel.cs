@@ -14,28 +14,28 @@ public class ServiceCheckoutServiceTypeServiceSummServiceViewModel
     
     public async Task<List<ServiceCheckoutServiceTypeDto>> Get()
     {
-        return await _httpClient.GetFromJsonAsync<List<ServiceCheckoutServiceTypeDto>>("https://localhost:44378/api/ServiceTypeSumm/service-checout-table");
+        return await _httpClient.GetFromJsonAsync<List<ServiceCheckoutServiceTypeDto>>("https://localhost:44378/api/ServiceCheckout/service-checkout-table");
     } 
     
     
     public async Task<ServiceCheckoutServiceTypeDto> GetById(int id)
     {
-        var res = await _httpClient.GetFromJsonAsync<ServiceCheckoutServiceTypeDto>($"https://localhost:44378/api/ServiceTypeSumm/service-checout-table/{id}");
+        var res = await _httpClient.GetFromJsonAsync<ServiceCheckoutServiceTypeDto>($"https://localhost:44378/api/ServiceCheckout/service-checkout-table/{id}");
         return res;
     }
 
     public async Task Create(ServiceCheckoutServiceTypeDto entity)
     {
-        await _httpClient.PostAsJsonAsync("https://localhost:44378/api/ServiceTypeSumm/service-checout-table", entity);
+        await _httpClient.PostAsJsonAsync("https://localhost:44378/api/ServiceCheckout/service-checkout-table", entity);
     }
 
     public async Task Update(ServiceCheckoutServiceTypeDto entity)
     {
-        await _httpClient.PutAsJsonAsync("https://localhost:44378/api/ServiceTypeSumm/service-checout-table", entity);
+        await _httpClient.PutAsJsonAsync("https://localhost:44378/api/ServiceCheckout/service-checkout-table", entity);
     }
     
     public async Task Delete(int id)
     {
-        await _httpClient.DeleteAsync($"https://localhost:44378/api/ServiceTypeSumm/service-checout-table/{id}");
+        await _httpClient.DeleteAsync($"https://localhost:44378/api/ServiceTypeSumm/service-checkout-table/{id}");
     }
 }

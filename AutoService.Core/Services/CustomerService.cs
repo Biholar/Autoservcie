@@ -1,5 +1,6 @@
 ﻿using AutoService.Core.Exceptions;
 using AutoService.Core.Interfaces;
+using AutoService.Core.Specs.CustomerCarSpec;
 using Autoservice.Infrastructure;
 using Autoservice.Infrastructure.Models;
 
@@ -20,6 +21,11 @@ public class CustomerService:ICustomerService
         return await _repository.ListAsync();
     }
 
+    public async Task<List<Customer>> GetCustomerCars()
+    {
+        return await _repository.ListAsync(new CustomerCarGetByCustomerId());
+    }
+    
     public async Task<List<Customer>> GetByNameAsync(string name)
     {
         var request = await _repository.ListAsync();

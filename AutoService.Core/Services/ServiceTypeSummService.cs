@@ -32,10 +32,7 @@ public class ServiceTypeSummService:IServiceTypeSummService
     {
         return await _repository.GetBySpecAsync(new CheckoutServiceGetById(id));
     }
-      public async Task<List<ServiceTypeSumm>> GetAllInclude()
-    {
-        return await _repository.ListAsync(new CheckoutServiceGetAll());
-    }
+     
     
     public async Task CreateAsync(ServiceTypeSumm serviceTypeSumm)
     {

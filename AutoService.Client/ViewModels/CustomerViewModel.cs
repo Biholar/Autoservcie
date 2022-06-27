@@ -21,6 +21,11 @@ public class CustomerViewModel
         return await _httpClient.GetFromJsonAsync<List<CustomerDto>>($"https://localhost:44378/api/Customer/name/{name}");
     }
     
+   public async Task<List<CustomerCarsDto>> GetCustomerCars()
+    {
+        return await _httpClient.GetFromJsonAsync<List<CustomerCarsDto>>($"https://localhost:44378/api/Customer/customer-cars/");
+    }
+    
     public async Task<CustomerDto> GetById(int id)
     {
         var res = await _httpClient.GetFromJsonAsync<CustomerDto>($"https://localhost:44378/api/Customer/{id}");

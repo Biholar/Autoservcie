@@ -47,6 +47,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdpbmdGb3Jtc1xBZGRDYXJGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/AddCarModelForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdpbmdGb3Jtc1xBZGRDYXJNb2RlbEZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/AddCustomerForm.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdpbmdGb3Jtc1xBZGRDdXN0b21lckZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -57,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/AddModelCarForm.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdpbmdGb3Jtc1xBZGRNb2RlbENhckZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/AddOrderForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdpbmdGb3Jtc1xBZGRPcmRlckZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/AddServiceTypeForm.razor]
@@ -77,6 +85,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/EditMasterForm.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdpbmdGb3Jtc1xFZGl0TWFzdGVyRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/EditOrderForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdpbmdGb3Jtc1xFZGl0T3JkZXJGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/INSTAL/Documents/paidprogramming/CHNU/AutoService/AutoService.Client/Pages/ManagingForms/EditServiceTypeFrom.razor]
