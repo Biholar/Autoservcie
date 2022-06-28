@@ -27,6 +27,13 @@ public class ServiceCheckoutController:ControllerBase
         return Ok();
     }
 
+    [HttpPost("service-checkout-table")]
+    public async Task<IActionResult>CreateTableChecout(ServiceCheckoutServiceTypeDto serviceCheckoutServiceTypeDto)
+    {
+        var serviceCheckout = _mapper.Map<ServiceCheckout>(serviceCheckoutServiceTypeDto);
+        await _service.CreateAsync(serviceCheckout);
+        return Ok();
+    }
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {

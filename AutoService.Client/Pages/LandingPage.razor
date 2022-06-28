@@ -3,6 +3,7 @@
 @using AutoService.WEBAPI.Dto
 @using Microsoft.JSInterop
 @using AutoService.Client.Enums
+@using System.Reflection.Metadata
 
 @inject ServiceRequestViewModel _viewModel;
 @inject OrderViewModel _orderModel;
@@ -179,15 +180,15 @@
 				<p class="writeUs" style="font-weight: 300; padding: 0px 0px 10px 5px ;">Заповніть форму</p>
 		<EditForm  Model="@Request" OnValidSubmit="@Submit">
 				<div class="input-group mb-3">
-					<input @bind="Request.FirstName" type="text" class="form-control" placeholder="Вкажіть ваше ім'я" >
+					<input  @bind="Request.FirstName" type="text" class="form-control" placeholder="Вкажіть ваше ім'я" >
 				</div>
                       
 				<div class="input-group mb-3">
-					<input @bind="Request.SecondName" type="text" class="form-control" placeholder="Вкажіть ваше прізвище" >
+					<input  @bind="Request.SecondName" type="text" class="form-control" placeholder="Вкажіть ваше прізвище" >
 				</div>
 
 				<div class="input-group mb-3">
-					<input   @bind="Request.Email" type="text" class="form-control" placeholder="Вкажіть ваш Email" >
+					<input  @bind="Request.Email" type="text" class="form-control" placeholder="Вкажіть ваш Email" >
 				</div>
                       
 				<div class="input-group mb-3">
@@ -197,7 +198,7 @@
 				<label class="writeUs" style="font-weight: 300; padding: 0px 0px 10px 5px ;">Опишіть вашу проблему</label>
                      
 				<div class="input-group" style="margin-bottom: 120px;">
-					<textarea @bind="Request.ProblemDesc"  class="form-control" style="resize: none; height: 150px; margin-bottom: 120px;" ></textarea>
+					<textarea  @bind="Request.ProblemDesc"  class="form-control" style="resize: none; height: 150px; margin-bottom: 120px;" ></textarea>
 				</div>
 			<button @onclick="()=> Submit()" type="button" class="btn btn-primary">Відправити</button>
 			</EditForm>	  
@@ -205,7 +206,7 @@
 	</section>
 				<section>
             				<div class="wrap" style="    display: flex;
-            				align-items: center; padding: 20px 130px;"><label class="writeUs" style="font-weight: 300; padding: 0px 10px 0 40px;">Перевірте статус</label>
+            				align-items: center; padding: 20px 100px;"><label class="writeUs" style="font-weight: 300; padding: 0px 10px 0 40px;">Перевірте статус</label>
 	                            <div class="input-group" style="width: 300px;">
             						<input @bind="id" type="number" class="form-control" placeholder="Номер замовлення" >
             					  </div>
@@ -261,7 +262,6 @@
 
 @code {
 	ServiceRequestDto Request = new ServiceRequestDto();
-	/*public ServiceRequestDto Request { get; set; } = new();*/
 	public int id;
 	public string status = "";
 	

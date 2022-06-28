@@ -3,6 +3,7 @@
 @inject IJSRuntime js;
 @using AutoService.WEBAPI.Dto
 @using AutoService.Client.ViewModels
+
 <div class="wrapper">
     <input @bind="Request.Name" type="text" class="form-control" style="margin-bottom: 20px" placeholder="Model name">
     <div class="buttonWrapper ">
@@ -14,6 +15,8 @@
 @code
 {
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    [Parameter] public  List<MarkeCarDto> Data { get; set; }
+    [Parameter] public MarkeCarDto _marke  {get; set; }
     ModelCarDto Request = new ModelCarDto();
 
     private async Task Submit()

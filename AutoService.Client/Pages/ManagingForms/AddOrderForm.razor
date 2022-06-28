@@ -10,12 +10,13 @@
 @using AutoService.Client.ViewModels
 @using Autoservice.Infrastructure.Models
 @using Microsoft.EntityFrameworkCore.Diagnostics
+@using Swashbuckle.AspNetCore.SwaggerUI
 
 
 <div class="wrapper">
 	<div class="plusWrpper">
 		
-		<select @onchange="DoStuff" class="form-select form-control input-group mb-3">
+		<select @onchange="SelectCustomer" class="form-select form-control input-group mb-3">
 				@if (CustomerCars == null)
                         {
                             <text>Loading...</text>
@@ -32,13 +33,12 @@
 		                        <option value="@customer.CustomerId">@customer.Customer</option>
 	                        }
                         }
-				
 		</select>
-		<button @onclick="@(()=>modal.Show<AddCustomerForm>("Add new Customer"))" type="button" class="btn-light"><a href="">+</a></button>
+		<button @onclick="@(()=>modal.Show<AddCustomerForm>("Add new Customer"))" type="button" class="btn-light"><a>+</a></button>
 	</div>
 
 	<div class="plusWrpper">
-		<select class="form-select form-control input-group mb-3">
+		<select @onchange="SelectCustomerCar" class="form-select form-control input-group mb-3">
 			<option disabled selected>Customer car</option>
 			@if (PickedCustomer != 0)
 			{
@@ -47,13 +47,12 @@
 					<option>@car</option>
 				}
 			}
-
 		</select>
 		<button type="button" class="btn-light"><a href="">+</a></button>
 	</div>
 
 	<div class="plusWrpper">
-		<select class="form-select form-control input-group mb-3">
+		<select @onchange="SelectServiceType" class="form-select form-control input-group mb-3">
 			@if (ServiceTypes != null)
 			{
 				<option disabled selected>Service type</option>
@@ -75,7 +74,7 @@
 	</div>
 
 	<div class="buttonWrapper">
-		<button type="button" style="width: 120px" class="btn btn-success">OK</button>
+		<button @onclick="() => Submit()" type="button" style="width: 120px" class="btn btn-success">OK</button>
 		<button type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
 	</div>
 </div>
@@ -85,24 +84,40 @@
 	List<Customer> Customers; 
 	List<CustomerCarsDto> CustomerCars; 
 	List<ServiceTypeDto> ServiceTypes;
+	
 	int PickedCustomer = 0;
+	int PickedCustomerCar = 0;
+	int PickedServiceType = 0;
 	
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
     MarkeCarDto Request = new MarkeCarDto();
-
+	
+	
+	
 	protected override async Task OnInitializedAsync()
 	{
 		CustomerCars = await _customerViewModel.GetCustomerCars();
 		ServiceTypes = await _serviceViewModel.Get();
 	}
 
-	public async Task DoStuff(ChangeEventArgs arg)
+	public async Task SelectCustomer(ChangeEventArgs arg)
 	{
 		PickedCustomer = Int32.Parse(arg.Value.ToString());
 	}
-	/*private async Task Submit()
-    {
-        await _viewModel.Create(Request);
-        ModalInstance.CloseAsync();
-    }*/
+	
+	public async Task SelectCustomerCar(ChangeEventArgs arg)
+	{
+		PickedCustomerCar = Int32.Parse(arg.Value.ToString());
+	}
+	
+	public async Task SelectServiceType(ChangeEventArgs arg)
+	{
+		PickedServiceType = Int32.Parse(arg.Value.ToString());
+	}
+	
+	private async Task Submit()
+	{
+		/*await _viewModel.Create(Request);
+		ModalInstance.CloseAsync();*/
+	}
 }

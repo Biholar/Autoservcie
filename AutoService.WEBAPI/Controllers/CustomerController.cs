@@ -23,6 +23,7 @@ public class CustomerController :ControllerBase
     public async Task<IActionResult> Create(CustomerDto customerDto)
     {
         var customer = _mapper.Map<Customer>(customerDto);
+        /*var customer = new Customer();*/
         await _service.CreateAsync(customer);
         return Ok();
     }
@@ -30,8 +31,9 @@ public class CustomerController :ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var res =await _service.GetAsync();
-        var customers = _mapper.Map<List<CustomerDto>>(res);
+        var res =await _service.GetAsync();/*
+        var customers = _mapper.Map<List<CustomerDto>>(res);*/
+        var customers = (res);
         return Ok(customers);
     }
     

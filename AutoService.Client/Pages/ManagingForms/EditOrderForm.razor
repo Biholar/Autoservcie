@@ -6,7 +6,7 @@
   <div class="wrapper">
   				<div class="plusWrpper">
   				<select class="form-select form-control input-group mb-3">
-  					<option disabled selected>Alex Aboba</option>
+  					<option disabled selected>@_customer.FirstName @_customer.SecondName</option>
   				</select>
   				<button type="button" class="btn-light"><a href="">+</a></button>
   			</div>
@@ -45,7 +45,6 @@
   
   				<input class="form-control input-group mb-3" type="text" value="Total price:" aria-label="Disabled input" disabled readonly>
   
-  
   				<div class="buttonWrapper">
   					<button type="button" style="width: 120px" class="btn btn-success">OK</button>
   					<button type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
@@ -55,12 +54,12 @@
 {
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
     [Parameter] public  List<MarkeCarDto> Data { get; set; }
-    [Parameter] public MarkeCarDto _marke  {get; set; }
+    [Parameter] public CustomerDto _customer  {get; set; }
     
-    async Task SaveMarke()
+    /*async Task SaveMarke()
     {
         await _model.Update(_marke);
         Data = await _model.Get();
         await ModalInstance.CloseAsync();
-    }
+    }*/
 }

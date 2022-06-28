@@ -51,7 +51,7 @@
             {
 	            foreach (ServiceCheckoutServiceTypeDto entity  in data)
 	            {
-		            <tr id="parrent" @onclick="@(()=>modal.Show<EditOrderForm>("EditOrder"))" >
+		            <tr id="parrent" @onclick="() => ShowEditMovie(entity.Id)" >
 			            <td style="font-weight: 800">@entity.Id</td>
 			            <td>@(Helper.ServiceParser(entity.ServiceStatus))</td>
 			            <td>@entity.Customer</td>
@@ -77,6 +77,16 @@
 		data = await _viewModel.Get();
 	}
 
+	async Task ShowEditMovie(int id)
+	{
+		var parameters = new ModalParameters();
+		var customer = await _viewModel.GetById(id);
+		parameters.Add("_customer", customer);
+		parameters.Add("Data", data);
+
+		modal.Show<EditCarForm>("Edit Manufacturer", parameters);
+	}
+	
 	private async Task DeleteRecord(int id)
 	{
 		if (await js.InvokeAsync<bool>("confirm", $"Do you want to delete record?"))
