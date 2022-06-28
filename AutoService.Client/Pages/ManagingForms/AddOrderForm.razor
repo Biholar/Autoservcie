@@ -1,0 +1,108 @@
+﻿@page "/addOrderForm"
+@inject CustomerViewModel _customerViewModel;
+@inject ServiceTypeViewModel _serviceViewModel;
+@inject ServiceCheckoutServiceTypeServiceSummServiceViewModel _serviceTypeSumViewModel;
+@inject MasterViewModel _masterViewModel;
+@inject OrderViewModel _orderViewModel;
+@inject IJSRuntime js;
+@inject IModalService modal;
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+@using Autoservice.Infrastructure.Models
+@using Microsoft.EntityFrameworkCore.Diagnostics
+
+
+<div class="wrapper">
+	<div class="plusWrpper">
+		
+		<select @onchange="DoStuff" class="form-select form-control input-group mb-3">
+				@if (CustomerCars == null)
+                        {
+                            <text>Loading...</text>
+                        }
+                        else if (!CustomerCars.Any())
+                        {
+                            <text>No Records Found.</text>
+                        }
+                        else
+                        {
+	                        <option disabled selected>Customer</option>
+	                        foreach (var customer in CustomerCars)
+	                        {
+		                        <option value="@customer.CustomerId">@customer.Customer</option>
+	                        }
+                        }
+				
+		</select>
+		<button @onclick="@(()=>modal.Show<AddCustomerForm>("Add new Customer"))" type="button" class="btn-light"><a href="">+</a></button>
+	</div>
+
+	<div class="plusWrpper">
+		<select class="form-select form-control input-group mb-3">
+			<option disabled selected>Customer car</option>
+			@if (PickedCustomer != 0)
+			{
+				foreach (var car in CustomerCars.Where(x => x.CustomerId == PickedCustomer).SelectMany(x => x.Cars))
+				{
+					<option>@car</option>
+				}
+			}
+
+		</select>
+		<button type="button" class="btn-light"><a href="">+</a></button>
+	</div>
+
+	<div class="plusWrpper">
+		<select class="form-select form-control input-group mb-3">
+			@if (ServiceTypes != null)
+			{
+				<option disabled selected>Service type</option>
+				foreach (var services in ServiceTypes)
+				{
+					<option value="@services.Id" >@services.Name</option>
+				}
+			}
+		</select>
+	</div>
+
+
+	<div class="input-group" style="margin-bottom: 120px">
+		<textarea
+					placeholder="Problem"
+						class="form-control"
+						style="resize: none; height: 150px; margin-bottom: 120px"
+					></textarea>
+	</div>
+
+	<div class="buttonWrapper">
+		<button type="button" style="width: 120px" class="btn btn-success">OK</button>
+		<button type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
+	</div>
+</div>
+
+@code
+{
+	List<Customer> Customers; 
+	List<CustomerCarsDto> CustomerCars; 
+	List<ServiceTypeDto> ServiceTypes;
+	int PickedCustomer = 0;
+	
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    MarkeCarDto Request = new MarkeCarDto();
+
+	protected override async Task OnInitializedAsync()
+	{
+		CustomerCars = await _customerViewModel.GetCustomerCars();
+		ServiceTypes = await _serviceViewModel.Get();
+	}
+
+	public async Task DoStuff(ChangeEventArgs arg)
+	{
+		PickedCustomer = Int32.Parse(arg.Value.ToString());
+	}
+	/*private async Task Submit()
+    {
+        await _viewModel.Create(Request);
+        ModalInstance.CloseAsync();
+    }*/
+}
