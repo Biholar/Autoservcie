@@ -1,5 +1,6 @@
 ﻿using AutoService.Core.Exceptions;
 using AutoService.Core.Interfaces;
+using AutoService.Core.Specs.CheckoutServiceTypeSpec;
 using Autoservice.Infrastructure;
 using Autoservice.Infrastructure.Models;
 
@@ -27,6 +28,12 @@ public class ServiceTypeSummService:IServiceTypeSummService
         return serviceTypeSumm;
     }
 
+    public async Task<ServiceTypeSumm> GetByIdInclude(int id)
+    {
+        return await _repository.GetBySpecAsync(new CheckoutServiceGetById(id));
+    }
+     
+    
     public async Task CreateAsync(ServiceTypeSumm serviceTypeSumm)
     {
         await _repository.AddAsync(serviceTypeSumm);

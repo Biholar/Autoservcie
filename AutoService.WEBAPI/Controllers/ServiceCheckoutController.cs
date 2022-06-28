@@ -35,6 +35,14 @@ public class ServiceCheckoutController:ControllerBase
         return Ok(serviceCheckout);
     }
 
+    [HttpGet("service-checkout-table")]
+    public async Task<IActionResult> GetTable ()
+    {
+        var serviceTypeSumm = await _service.GetAllInclude();
+        var res = _mapper.Map<List<ServiceCheckoutServiceTypeDto>>(serviceTypeSumm);
+        return Ok(res);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

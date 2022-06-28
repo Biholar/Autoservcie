@@ -6,6 +6,7 @@ public interface IServiceTypeSummService
 {
     Task<List<ServiceTypeSumm>> GetAsync();
     Task<ServiceTypeSumm> GetByIdAsync(int id);
+    Task<ServiceTypeSumm> GetByIdInclude(int id);
     Task CreateAsync(ServiceTypeSumm serviceTypeSumm);
     Task UpdateAsync(ServiceTypeSumm serviceTypeSumm);
     Task DeleteAsync(int id);

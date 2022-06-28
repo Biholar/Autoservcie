@@ -25,6 +25,7 @@
 					<tr @onclick="() => Refresh()">
 						<th style="font-weight: 800; background-color: #e6e6e6; width: 30px ;    padding-top: 13px;">#</th>
 						<th style="font-weight: 800; background-color: #e6e6e6; width: 250px;    padding-top: 13px;">Name</th>
+						<th style="font-weight: 800; background-color: #e6e6e6; width: 50px;    padding-top: 13px;">Box</th>
 					</tr>
 					</thead>
 					
@@ -43,6 +44,7 @@
 						<tr id="parrent"  style="height: 30px">
 							<td style="text-align: left">@entity.Id</td>
 							<td  @onclick="() => ShowEditMovie(entity.Id)" style="text-align: left; padding-left: 30px">@entity.Name</td>
+							<td  @onclick="() => ShowEditMovie(entity.Id)" style="text-align: left; padding-left: 30px">@entity.Box</td>
 							<td>
 								<button id="child" class="buttonTrash" @onclick="async () => await DeleteRecord(entity.Id)">
 									<i class="fa fa-trash" aria-hidden="true"></i>

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Autoservice.Infrastructure.Migrations
 {
     [DbContext(typeof(AutoserviceDbContext))]
-    [Migration("20220520143125_Initial")]
+    [Migration("20220530175201_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -204,9 +204,6 @@ namespace Autoservice.Infrastructure.Migrations
                     b.Property<int>("ServiceStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("ServiceTypeSummId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TotalPrice")
                         .HasColumnType("int");
 
@@ -217,8 +214,6 @@ namespace Autoservice.Infrastructure.Migrations
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("MaserId");
-
-                    b.HasIndex("ServiceTypeSummId");
 
                     b.ToTable("ServiceCheckouts");
                 });
@@ -307,14 +302,19 @@ namespace Autoservice.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ServiceTypeId")
+                    b.Property<int?>("ServiceCheckoutId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ServiceTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ServiceCheckoutId");
+
                     b.HasIndex("ServiceTypeId");
 
-                    b.ToTable("ServiceTypeSummsypes");
+                    b.ToTable("ServiceTypeSummsTypes");
                 });
 
             modelBuilder.Entity("Autoservice.Infrastructure.Models.SparePart", b =>
@@ -414,19 +414,11 @@ namespace Autoservice.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Autoservice.Infrastructure.Models.ServiceTypeSumm", "ServiceTypeSumm")
-                        .WithMany("ServiceCheckout")
-                        .HasForeignKey("ServiceTypeSummId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Customer");
 
                     b.Navigation("CustomerCar");
 
                     b.Navigation("Master");
-
-                    b.Navigation("ServiceTypeSumm");
                 });
 
             modelBuilder.Entity("Autoservice.Infrastructure.Models.ServiceSpare", b =>
@@ -450,11 +442,15 @@ namespace Autoservice.Infrastructure.Migrations
 
             modelBuilder.Entity("Autoservice.Infrastructure.Models.ServiceTypeSumm", b =>
                 {
+                    b.HasOne("Autoservice.Infrastructure.Models.ServiceCheckout", "ServiceCheckout")
+                        .WithMany("ServiceTypeSumm")
+                        .HasForeignKey("ServiceCheckoutId");
+
                     b.HasOne("Autoservice.Infrastructure.Models.ServiceType", "ServiceType")
                         .WithMany("ServiceTypeSumm")
-                        .HasForeignKey("ServiceTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ServiceTypeId");
+
+                    b.Navigation("ServiceCheckout");
 
                     b.Navigation("ServiceType");
                 });
@@ -492,16 +488,13 @@ namespace Autoservice.Infrastructure.Migrations
             modelBuilder.Entity("Autoservice.Infrastructure.Models.ServiceCheckout", b =>
                 {
                     b.Navigation("ServiceSpares");
+
+                    b.Navigation("ServiceTypeSumm");
                 });
 
             modelBuilder.Entity("Autoservice.Infrastructure.Models.ServiceType", b =>
                 {
                     b.Navigation("ServiceTypeSumm");
-                });
-
-            modelBuilder.Entity("Autoservice.Infrastructure.Models.ServiceTypeSumm", b =>
-                {
-                    b.Navigation("ServiceCheckout");
                 });
 
             modelBuilder.Entity("Autoservice.Infrastructure.Models.SparePart", b =>

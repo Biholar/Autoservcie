@@ -1,5 +1,7 @@
-﻿using AutoService.Core.Exceptions;
+﻿using Ardalis.Specification;
+using AutoService.Core.Exceptions;
 using AutoService.Core.Interfaces;
+using AutoService.Core.Specs.CheckoutServiceTypeSpec;
 using Autoservice.Infrastructure;
 using Autoservice.Infrastructure.Models;
 
@@ -8,7 +10,7 @@ namespace AutoService.Core.Services;
 public class ServiceCheckoutService:IServiceCheckoutService
 {
     private readonly IRepository<ServiceCheckout> _repository;
-    
+
     public ServiceCheckoutService(IRepository<ServiceCheckout> repository)
     {
         _repository = repository;
@@ -20,12 +22,17 @@ public class ServiceCheckoutService:IServiceCheckoutService
         return await _repository.ListAsync();
     }
 
+  
     public async Task<ServiceCheckout> GetByIdAsync(int id)
     {
         var serviceCheckout = await _repository.GetByIdAsync(id);
         if (serviceCheckout == null) throw new NotFoundException(nameof(ServiceCheckout));
-
         return serviceCheckout;
+    }
+
+    public async Task<List<ServiceCheckout>> GetAllInclude()
+    {
+        return await _repository.ListAsync(new CheckoutServiceGetAll());
     }
 
     public async Task CreateAsync(ServiceCheckout serviceCheckout)

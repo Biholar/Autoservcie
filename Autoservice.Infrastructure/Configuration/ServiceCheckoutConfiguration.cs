@@ -18,9 +18,5 @@ public class ServiceCheckoutConfiguration:IEntityTypeConfiguration<ServiceChecko
             .HasOne(x => x.CustomerCar)
             .WithMany(x => x.ServiceCheckouts)
             .HasForeignKey(x => x.CustomerCarId);
-        builder
-            .HasOne(x => x.ServiceTypeSumm)
-            .WithMany(x => x.ServiceCheckout)
-            .HasForeignKey(x => x.ServiceTypeSummId);
     }
 }

@@ -119,25 +119,6 @@ namespace Autoservice.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ServiceTypeSummsypes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ServiceTypeId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ServiceTypeSummsypes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ServiceTypeSummsypes_ServiceTypes_ServiceTypeId",
-                        column: x => x.ServiceTypeId,
-                        principalTable: "ServiceTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ModificationCars",
                 columns: table => new
                 {
@@ -218,7 +199,6 @@ namespace Autoservice.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerCarId = table.Column<int>(type: "int", nullable: false),
-                    ServiceTypeSummId = table.Column<int>(type: "int", nullable: false),
                     TotalPrice = table.Column<int>(type: "int", nullable: false),
                     ProblemDesc = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MaserId = table.Column<int>(type: "int", nullable: false),
@@ -244,12 +224,6 @@ namespace Autoservice.Infrastructure.Migrations
                         name: "FK_ServiceCheckouts_Masters_MaserId",
                         column: x => x.MaserId,
                         principalTable: "Masters",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ServiceCheckouts_ServiceTypeSummsypes_ServiceTypeSummId",
-                        column: x => x.ServiceTypeSummId,
-                        principalTable: "ServiceTypeSummsypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -279,6 +253,30 @@ namespace Autoservice.Infrastructure.Migrations
                         principalTable: "SpareParts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ServiceTypeSummsTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ServiceTypeId = table.Column<int>(type: "int", nullable: true),
+                    ServiceCheckoutId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServiceTypeSummsTypes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ServiceTypeSummsTypes_ServiceCheckouts_ServiceCheckoutId",
+                        column: x => x.ServiceCheckoutId,
+                        principalTable: "ServiceCheckouts",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ServiceTypeSummsTypes_ServiceTypes_ServiceTypeId",
+                        column: x => x.ServiceTypeId,
+                        principalTable: "ServiceTypes",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -327,11 +325,6 @@ namespace Autoservice.Infrastructure.Migrations
                 column: "MaserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ServiceCheckouts_ServiceTypeSummId",
-                table: "ServiceCheckouts",
-                column: "ServiceTypeSummId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ServiceSpares_ServiceId",
                 table: "ServiceSpares",
                 column: "ServiceId");
@@ -342,8 +335,13 @@ namespace Autoservice.Infrastructure.Migrations
                 column: "SpareId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ServiceTypeSummsypes_ServiceTypeId",
-                table: "ServiceTypeSummsypes",
+                name: "IX_ServiceTypeSummsTypes_ServiceCheckoutId",
+                table: "ServiceTypeSummsTypes",
+                column: "ServiceCheckoutId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServiceTypeSummsTypes_ServiceTypeId",
+                table: "ServiceTypeSummsTypes",
                 column: "ServiceTypeId");
         }
 
@@ -359,10 +357,16 @@ namespace Autoservice.Infrastructure.Migrations
                 name: "ServiceSpares");
 
             migrationBuilder.DropTable(
-                name: "ServiceCheckouts");
+                name: "ServiceTypeSummsTypes");
 
             migrationBuilder.DropTable(
                 name: "SpareParts");
+
+            migrationBuilder.DropTable(
+                name: "ServiceCheckouts");
+
+            migrationBuilder.DropTable(
+                name: "ServiceTypes");
 
             migrationBuilder.DropTable(
                 name: "CustomerCars");
@@ -371,16 +375,10 @@ namespace Autoservice.Infrastructure.Migrations
                 name: "Masters");
 
             migrationBuilder.DropTable(
-                name: "ServiceTypeSummsypes");
-
-            migrationBuilder.DropTable(
                 name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "ModificationCars");
-
-            migrationBuilder.DropTable(
-                name: "ServiceTypes");
 
             migrationBuilder.DropTable(
                 name: "ModelCars");

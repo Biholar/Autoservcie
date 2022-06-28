@@ -11,8 +11,7 @@
 <div class="modalFormWrapper">
 
 	<div class="inputWrapper" style="display: flex; margin: 0 30px">
-						<button @onclick="@(()=>modal.Show<AddCarForm>("Add new Manufacturer"))" class="btn btn-primary" style="margin-right: 10px; width: 50px; height:40px;">+</button>
-
+		<button @onclick="@(()=>modal.Show<AddCarForm>("Add new Manufacturer"))" class="btn btn-primary" style="margin-right: 10px; width: 50px; height:40px;">+</button>
 		<input @bind="seachQ"  type="text" class="form-control"  placeholder="Search"/>
 		<button @onclick="async ()=> await FilterByName(seachQ)" class="btn btn-light" style="margin-left: 10px">Search</button>
 	</div>

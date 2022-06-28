@@ -4,6 +4,7 @@
 @inject MasterViewModel _model
 
     <input @bind="_master.Name" class="form-control" style="margin-bottom: 20px">
+    <input @bind="_master.Box" type="number" class="form-control" style="margin-bottom: 20px">
     <div class="wrapper">
         <div class="buttonWrapper">
             <button @onclick="() => Save()" type="button" style="width: 120px" class="btn btn-success">OK</button>

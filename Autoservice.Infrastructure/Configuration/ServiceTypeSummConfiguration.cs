@@ -14,5 +14,9 @@ public class ServiceTypeSummConfiguration:IEntityTypeConfiguration<ServiceTypeSu
             .HasOne(x => x.ServiceType)
             .WithMany(x => x.ServiceTypeSumm)
             .HasForeignKey(x => x.ServiceTypeId);
+        builder
+            .HasOne(x => x.ServiceCheckout)
+            .WithMany(x => x.ServiceTypeSumm)
+            .HasForeignKey(x=>x.ServiceCheckoutId);
     }
 }

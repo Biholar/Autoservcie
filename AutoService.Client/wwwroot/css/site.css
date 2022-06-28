@@ -58,6 +58,11 @@ td{
     padding-top: 3px;
 }
 
+th
+{
+    color: #7A7A7A;    
+    padding-top: 13px;
+}
 tr{
     background-color: #ffffff;
     height: 40px;

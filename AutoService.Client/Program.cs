@@ -16,6 +16,9 @@ builder.Services.AddTransient<MasterViewModel>();
 builder.Services.AddTransient<ServiceTypeViewModel>();
 builder.Services.AddTransient<SparePartViewModel>();
 builder.Services.AddTransient<CustomerViewModel>();
+builder.Services.AddTransient<ModelModCarViewModel>();
+builder.Services.AddTransient<OrderViewModel>();
+builder.Services.AddTransient<ServiceCheckoutServiceTypeServiceSummServiceViewModel>();
 builder.Services.AddHttpClient();
 builder.Services.AddBlazoredModal(); 
 

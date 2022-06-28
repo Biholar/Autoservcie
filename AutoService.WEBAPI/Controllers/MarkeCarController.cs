@@ -50,6 +50,14 @@ public class MarkeCarController:ControllerBase
         return Ok(markeCar);
     }
 
+    [HttpGet("modelbymarke/{id}")]
+    public async Task<IActionResult> GetCarModelByMarkeId(int id)
+    {
+        var res = await _service.GetCarByIdIncludeModelModification(id);
+        var markeCar = _mapper.Map<MarkeCar>(res);
+        return Ok(markeCar);
+    }
+
     [HttpPut]
     public async Task<IActionResult> Update(MarkeCarDto markeCarDto)
     {

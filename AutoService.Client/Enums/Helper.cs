@@ -23,16 +23,16 @@ public class Helper
         switch ((ServiceStatusEnum) value)
         {
             case ServiceStatusEnum.Waiting:
-                return "Waiting in queue";
+                return "Очікує в черзі";
                 break;
             case ServiceStatusEnum.Working:
-                return "Working on";
+                return "Ведеться робота";
                 break;
             case ServiceStatusEnum.OnPause:
-                return "Waiting parts";
+                return "Очікування запчастин";
                 break;
             default:
-                return "We dont know";
+                return "Ми не знаємо";
                 break;
         }
     }

@@ -37,7 +37,8 @@ public class ServiceRequestService:IServiceRequestService
     public async Task<List<ServiceRequest>> GetByNameAsync(string name)
     {
         var request = await _repository.ListAsync();
-        var selectedRequest = request.Where(p => p.SecondName.Contains(name, StringComparison.OrdinalIgnoreCase)).OrderBy(p => p.Id);
+        var selectedRequest = request.Where(p => 
+            p.FirstName.StartsWith(name, StringComparison.OrdinalIgnoreCase) || p.SecondName.StartsWith(name, StringComparison.OrdinalIgnoreCase) || p.PhoneNum.Contains(name) ).OrderBy(p => p.Id);
         return selectedRequest.ToList();
     }
 

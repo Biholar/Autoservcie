@@ -11,7 +11,7 @@
 <div class="modalFormWrapper" style="width: 600px">
 
 	<div class="inputWrapper" style="display: flex; margin: 0 30px">
-						<button @onclick="@(()=>modal.Show<AddCustomerForm>("Add new Master"))" class="btn btn-primary" style="margin-right: 10px; width: 50px; height:40px;">+</button>
+						<button @onclick="@(()=>modal.Show<AddCustomerForm>("Add new Customer"))" class="btn btn-primary" style="margin-right: 10px; width: 50px; height:40px;">+</button>
 		<input @bind="seachQ"  type="text" class="form-control"  placeholder="Search"/>
 		<button @onclick="async ()=> await FilterByName(seachQ)"class="btn btn-light" style="margin-left: 10px">Search</button>
 	</div>
@@ -25,7 +25,7 @@
 					<tr @onclick="() => Refresh()">
 						<th style="font-weight: 800; background-color: #e6e6e6; width: 30px ;    padding-top: 13px;">#</th>
 						<th style="font-weight: 800; background-color: #e6e6e6; width: 300px;    padding-top: 13px;">Name</th>
-						<th style="font-weight: 800; background-color: #e6e6e6; width: 150px;    padding-top: 13px;">Phone number</th>
+						<th style="font-weight: 800; background-color: #e6e6e6; width: 200px;    padding-top: 13px;">Phone number</th>
 					</tr>
 					</thead>
 					

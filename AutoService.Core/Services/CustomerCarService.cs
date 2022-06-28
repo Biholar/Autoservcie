@@ -1,5 +1,7 @@
-﻿using AutoService.Core.Exceptions;
+﻿using Ardalis.Specification;
+using AutoService.Core.Exceptions;
 using AutoService.Core.Interfaces;
+using AutoService.Core.Specs.CustomerCarSpec;
 using Autoservice.Infrastructure;
 using Autoservice.Infrastructure.Models;
 
@@ -18,6 +20,8 @@ public class CustomerCarService:ICustomerCarService
     {
         return await _repository.ListAsync();
     }
+
+  
 
     public async Task<CustomerCar> GetByIdAsync(int id)
     {
