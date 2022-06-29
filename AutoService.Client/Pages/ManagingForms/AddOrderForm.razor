@@ -1,7 +1,7 @@
 ﻿@page "/addOrderForm"
 @inject CustomerViewModel _customerViewModel;
 @inject ServiceTypeViewModel _serviceViewModel;
-@inject ServiceCheckoutServiceTypeServiceSummServiceViewModel _serviceTypeSumViewModel;
+@inject ServiceCheckoutServiceTypeServiceSummServiceViewModel _viewModel;
 @inject MasterViewModel _masterViewModel;
 @inject OrderViewModel _orderViewModel;
 @inject IJSRuntime js;
@@ -9,8 +9,6 @@
 @using AutoService.WEBAPI.Dto
 @using AutoService.Client.ViewModels
 @using Autoservice.Infrastructure.Models
-@using Microsoft.EntityFrameworkCore.Diagnostics
-@using Swashbuckle.AspNetCore.SwaggerUI
 
 
 <div class="wrapper">
@@ -42,9 +40,9 @@
 			<option disabled selected>Customer car</option>
 			@if (PickedCustomer != 0)
 			{
-				foreach (var car in CustomerCars.Where(x => x.CustomerId == PickedCustomer).SelectMany(x => x.Cars))
+				foreach (var car in CustomerCars.Where(x => x.CustomerId == PickedCustomer).SelectMany(x=>x.Cars))
 				{
-					<option>@car</option>
+					<option value="@car.CarId" >@car.carName</option>
 				}
 			}
 		</select>
@@ -66,7 +64,7 @@
 
 
 	<div class="input-group" style="margin-bottom: 120px">
-		<textarea
+		<textarea @bind="Request.ProblemDesc"
 					placeholder="Problem"
 						class="form-control"
 						style="resize: none; height: 150px; margin-bottom: 120px"
@@ -81,18 +79,31 @@
 
 @code
 {
+	public class Kostil
+	{
+		public List<string> cars;
+	}
+	
+	AddServiceCheckoutDto Request = new AddServiceCheckoutDto();
 	List<Customer> Customers; 
 	List<CustomerCarsDto> CustomerCars; 
 	List<ServiceTypeDto> ServiceTypes;
+	
+	ServiceCheckoutDto PreData = new ServiceCheckoutDto()
+	{
+		Id = 5,
+		MaserId = 4,
+		ProblemDesc = "Motor Problems",
+		ServiceStatus = 1,
+		TotalPrice = 700,
+		CustomerCarId = 3
+	};
 	
 	int PickedCustomer = 0;
 	int PickedCustomerCar = 0;
 	int PickedServiceType = 0;
 	
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
-    MarkeCarDto Request = new MarkeCarDto();
-	
-	
 	
 	protected override async Task OnInitializedAsync()
 	{
@@ -117,7 +128,9 @@
 	
 	private async Task Submit()
 	{
-		/*await _viewModel.Create(Request);
-		ModalInstance.CloseAsync();*/
+		Request.CustomerCarId = PickedCustomerCar;
+		Request.ServiceTypeId = new List<int>(){PickedServiceType};
+		await _viewModel.Create(Request);
+		ModalInstance.CloseAsync();
 	}
 }

@@ -1,0 +1,45 @@
+﻿@page "/addCarToCustomerForm"
+@inject MarkeCarViewModel _viewModel;
+@inject IJSRuntime js;
+@using AutoService.WEBAPI.Dto
+@using AutoService.Client.ViewModels
+<div class="wrapper">
+    <h2 >Client car</h2>
+        <select class="form-select form-control input-group mb-3">
+            <option selected>Marke</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Another</option>
+        </select>
+    
+        <select class="form-select form-control input-group mb-3">
+            <option selected>Model</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Another</option>
+        </select>
+    
+        <select class="form-select form-control input-group mb-3">
+            <option selected>Modification</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Another</option>
+        </select>
+    
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Vin"/>
+        </div>
+
+</div>
+
+@code
+{
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; }
+    MarkeCarDto Request = new MarkeCarDto();
+
+    private async Task Submit()
+    {
+        await _viewModel.Create(Request);
+        ModalInstance.CloseAsync();
+    }
+}

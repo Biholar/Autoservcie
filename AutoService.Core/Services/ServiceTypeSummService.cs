@@ -9,10 +9,12 @@ namespace AutoService.Core.Services;
 public class ServiceTypeSummService:IServiceTypeSummService
 {
     private readonly IRepository<ServiceTypeSumm> _repository;
+    private readonly IRepository<CustomerCar> _customerCar;
 
-    public ServiceTypeSummService(IRepository<ServiceTypeSumm> repository)
+    public ServiceTypeSummService(IRepository<ServiceTypeSumm> repository, IRepository<CustomerCar> customerCar)
     {
         _repository = repository;
+        _customerCar = customerCar;
     }
 
     public async Task<List<ServiceTypeSumm>> GetAsync()

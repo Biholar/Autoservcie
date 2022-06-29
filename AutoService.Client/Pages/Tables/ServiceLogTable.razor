@@ -30,7 +30,7 @@
 			<tr >
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 70px">#</th>
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 140px">Status</th>
-				<th style="font-weight: 800; background-color: #e6e6e6; width: 350px">Client</th>
+				<th @onclick="() => AddNew()" style="font-weight: 800; background-color: #e6e6e6; width: 350px">Client</th>
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 250px">Car</th>
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 80px">Box</th>
 				<th style="font-weight: 800; background-color: #e6e6e6; width: 350px">Master</th>
@@ -51,7 +51,7 @@
             {
 	            foreach (ServiceCheckoutServiceTypeDto entity  in data)
 	            {
-		            <tr id="parrent" @onclick="() => ShowEditMovie(entity.Id)" >
+		            <tr id="parrent" @onclick="@(()=>modal.Show<EditOrderForm>("Edit Order"))" >
 			            <td style="font-weight: 800">@entity.Id</td>
 			            <td>@(Helper.ServiceParser(entity.ServiceStatus))</td>
 			            <td>@entity.Customer</td>
@@ -74,9 +74,77 @@
 	List<ServiceCheckoutServiceTypeDto> data { get; set; }
 	protected override async Task OnInitializedAsync()
 	{
-		data = await _viewModel.Get();
+		data = Data;
+		/*data = await _viewModel.Get();*/
 	}
 
+	private void AddNew()
+	{
+		data.Add(new ServiceCheckoutServiceTypeDto()
+		{
+			Customer = "Alex Aboba",
+			Id = 21,
+			Box = 1,
+			MarkeModel = "Audi A5",
+			ServiceType = "Oil Change",
+			ServiceStatus = 0,
+			Master = "Vasyl Z."
+		});
+	}
+	public List<ServiceCheckoutServiceTypeDto> Data = new List<ServiceCheckoutServiceTypeDto>()
+	{
+		new ServiceCheckoutServiceTypeDto()
+		{
+			Customer = "Max Js",
+			Id = 16,
+			Box = 2,
+			MarkeModel = "BMW M4",
+			ServiceType = "Engine repair",
+			ServiceStatus = 1,
+			Master = "Vitaliy N."
+		},
+		new ServiceCheckoutServiceTypeDto()
+		{
+			Customer = "Denis Chorban",
+			Id = 17,
+			Box = 10,
+			MarkeModel = "BMW M3",
+			ServiceType = "Electronic",
+			ServiceStatus = 1,
+			Master = "Mykola V."
+		},
+		new ServiceCheckoutServiceTypeDto()
+		{
+			Customer = "Maxym Biger",
+			Id = 18,
+			Box = 5,
+			MarkeModel = "VW Passat",
+			ServiceType = "Body Work",
+			ServiceStatus = 2,
+			Master = "Anton G."
+		},
+		new ServiceCheckoutServiceTypeDto()
+		{
+			Customer = "Mykola Zadorozhnii",
+			Id = 19,
+			Box = 4,
+			MarkeModel = "Toyota Cruiser",
+			ServiceType = "Chassie work",
+			ServiceStatus = 1,
+			Master = "Taras A."
+		},
+		new ServiceCheckoutServiceTypeDto()
+		{
+			Customer = "Max Powerchenko",
+			Id = 20,
+			Box = 3,
+			MarkeModel = "MB E36",
+			ServiceType = "Engine repair",
+			ServiceStatus = 0,
+			Master = "Anatoli M."
+		},
+		
+	};
 	async Task ShowEditMovie(int id)
 	{
 		var parameters = new ModalParameters();

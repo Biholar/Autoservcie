@@ -9,6 +9,7 @@ public class ServiceCheckoutServiceTypeDto:IMap<ServiceCheckout>
     public int Id { get; set; }
     public int ServiceCheckoutId { get; set; }
     public int ServiceStatus { get; set; }
+    public int CarId { get; set; }
     public string Customer { get; set; }
     public string MarkeModel { get; set; }
     public string Master { get; set; }
@@ -27,6 +28,8 @@ public class ServiceCheckoutServiceTypeDto:IMap<ServiceCheckout>
             .ForMember(d => d.Box, m =>
                 m.MapFrom(s =>
                     s.Master.Box))
+            .ForMember(d=>d.CarId,m=>
+                m.MapFrom(s=>s.CustomerCarId))
             .ForMember(d => d.MarkeModel, m =>
                 m.MapFrom(s =>
                     $"{s.CustomerCar.Car.ModelCar.Marke.Name} {s.CustomerCar.Car.ModelCar.Name}"))

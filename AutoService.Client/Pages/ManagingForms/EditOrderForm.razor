@@ -4,50 +4,48 @@
 @inject MarkeCarViewModel _model
 
   <div class="wrapper">
-  				<div class="plusWrpper">
-  				<select class="form-select form-control input-group mb-3">
-  					<option disabled selected>@_customer.FirstName @_customer.SecondName</option>
+	  <select disabled class="form-select form-control input-group mb-3">
+		  <option disabled selected>Max Js</option>
+	  </select>
+	  
+	  <select disabled class="form-select form-control input-group mb-3">
+		  <option disabled selected>BMW M4</option>
   				</select>
-  				<button type="button" class="btn-light"><a href="">+</a></button>
-  			</div>
-  
+  				
   			<div class="plusWrpper">
   				<select class="form-select form-control input-group mb-3">
-  					<option disabled selected>Car</option>
-  					<option value="1">Male</option>
-  				</select>
-  				<button type="button" class="btn-light"><a href="">+</a></button>
-  			</div>
-  
-  			<div class="plusWrpper">
-  				<select class="form-select form-control input-group mb-3">
-  					<option disabled selected>Service Type</option>
-  					<option value="1">Male</option>
+  					<option disabled selected>Engine repair</option>
   				</select>
   			</div>
   			
   				<div class="input-group" style="margin-bottom: 120px">
-  					<textarea
+	                <textarea
   					placeholder="Problem"
   						class="form-control"
   						style="resize: none; height: 150px; margin-bottom: 120px"
-  					></textarea>
+  					>Loud on cold start</textarea>
   				</div>
   
   				<select class="form-select form-control input-group mb-3">
-  					<option selected>Master</option>
-  					<option value="1">Male</option>
+  					<option >Select Master</option>
+  					<option>Vasyl Z.</option>
+  					<option selected>Vitaliy N.</option>
+  					<option>Anatoli M.</option>
+  					<option>Taras A.</option>
+  					<option>Anton G.</option>
+  					<option>Mykola V.</option>
   				</select>
   				<select class="form-select form-control input-group mb-3">
-  					<option selected>Status</option>
-  					<option value="1">Male</option>
+  					<option>Очікування запчастин</option>
+  					<option selected>Ведетсья робота</option>
+  					<option>Очікує в черзі</option>
   				</select>
   
-  				<input class="form-control input-group mb-3" type="text" value="Total price:" aria-label="Disabled input" disabled readonly>
+  				<input class="form-control input-group mb-3" type="text" value="Total price: 1800" aria-label="Disabled input" disabled readonly>
   
   				<div class="buttonWrapper">
-  					<button type="button" style="width: 120px" class="btn btn-success">OK</button>
-  					<button type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
+  					<button @onclick="ModalInstance.CancelAsync" type="button" style="width: 120px" class="btn btn-success">OK</button>
+  					<button @onclick="ModalInstance.CancelAsync" type="button" style="width: 120px" class="btn btn-danger">Cancel</button>
   				</div>
   			</div>
 @code

@@ -6,7 +6,7 @@ public class ServiceCheckout
     public int CustomerCarId { get; set; }
     public int TotalPrice { get; set; }
     public string ProblemDesc { get; set; }
-    public int MaserId { get; set; }
+    public int? MaserId { get; set; }
     public DateTime RequestTime { get; set; }
     public int ServiceStatus { get; set; }
 

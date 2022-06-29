@@ -24,12 +24,12 @@ public class ServiceCheckoutServiceTypeServiceSummServiceViewModel
         return res;
     }
 
-    public async Task Create(ServiceCheckoutServiceTypeDto entity)
+    public async Task Create(AddServiceCheckoutDto entity)
     {
         await _httpClient.PostAsJsonAsync("https://localhost:44378/api/ServiceCheckout/service-checkout-table", entity);
     }
 
-    public async Task Update(ServiceCheckoutServiceTypeDto entity)
+    public async Task Update(AddServiceCheckoutDto entity)
     {
         await _httpClient.PutAsJsonAsync("https://localhost:44378/api/ServiceCheckout/service-checkout-table", entity);
     }
